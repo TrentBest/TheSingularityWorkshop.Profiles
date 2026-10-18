@@ -77,11 +77,11 @@ It is intentionally distinct from Profile. Its claims dictionary is copied and r
 
 ### ProfilePublicDataReport
 
-Owner-facing metadata describing which parts of a profile are currently public.
+Owner-facing metadata: existing claim keys with Public rules, whether the special `display-name` rule is Public, and whether a public/default avatar is configured.
 
 ### ProfilePublicDataReporter
 
-Creates public exposure reports without copying private values into the report.
+Creates exposure metadata without copying claim values. It reports configured public policy, not the final representation for every possible observer.
 
 ## Assumptions
 
@@ -91,7 +91,7 @@ Describes a proposition required by an Experience.
 
 ### AssumptionResult and AssumptionResultKind
 
-`AssumptionResult` carries the assumption key, a `Kind`, and optional proof text. `AssumptionResultKind` is the outcome enum: `Satisfied`, `NotSatisfied`, or `Unknown`. The default in-process resolver maps missing dictionary keys and invalid operations to `Unknown`; applications should not treat self-declared claims as independent verification.
+`AssumptionResult` carries the assumption key, a `Kind`, and optional proof text. `AssumptionResultKind` is the outcome enum: `Satisfied`, `NotSatisfied`, or `Unknown`. The default in-process resolver maps `KeyNotFoundException` and `InvalidOperationException` thrown by the predicate to `Unknown`; a normal boolean return maps to `Satisfied` or `NotSatisfied`. Other exceptions can propagate. The predicate receives the original `Profile`, so the resolver does not itself hide raw claims or establish independent verification.
 
 ### IProfileAssumptionResolver
 
