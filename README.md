@@ -7,8 +7,8 @@
 [![NuGet downloads](https://img.shields.io/nuget/dt/TheSingularityWorkshop.Profiles?logo=nuget&style=flat-square)](https://www.nuget.org/packages/TheSingularityWorkshop.Profiles)
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/TrentBest/TheSingularityWorkshop.Profiles/build.yml?branch=development&style=flat-square&logo=github)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/actions/workflows/build.yml)
-[![Last commit](https://img.shields.io/github/last-commit/TrentBest/TheSingularityWorkshop.Profiles/development)](https://github.com/TrentBest/Profiles/commits/development)
-[![Code Coverage](https://codecov.io/gh/TrentBest/Profiles/graph/badge.svg)](https://codecov.io/gh/TrentBest/Profiles)
+[![Last commit](https://img.shields.io/github/last-commit/TrentBest/TheSingularityWorkshop.Profiles/development)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/commits/development)
+[![Code Coverage](https://codecov.io/gh/TrentBest/TheSingularityWorkshop.Profiles/graph/badge.svg)](https://codecov.io/gh/TrentBest/TheSingularityWorkshop.Profiles)
 
 ![Source-informed Profiles diagram: Profile.RepresentTo filters claims by disclosure rule, applies display-name and avatar rules, and returns an observer-specific projection. Provenance and GUI.SVG status are identified inside the image.](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Profiles/development/docs/images/profiles-architecture.svg)
 
