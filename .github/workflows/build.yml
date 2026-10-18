@@ -80,6 +80,7 @@ jobs:
               required = [
                   "README.md",
                   "docs/ARCHITECTURE.md",
+                  "docs/DOMAIN_DEFINITION.md",
                   "docs/CONSUMING.md",
                   "docs/HOW_TO.md",
                   "docs/API.md",
