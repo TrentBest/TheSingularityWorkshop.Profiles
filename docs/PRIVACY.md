@@ -22,7 +22,7 @@ Preferred:
     Resolve the exact proposition the experience needs.
 ~~~
 
-For example, Age >= 21 can produce a proof/result without handing the experience the user's date of birth.
+A trusted host-side verifier can be designed to answer a proposition such as Age >= 21 without disclosing a date of birth. The current default resolver does not provide that privacy guarantee: its predicate receives the original Profile and can read raw claims. Profiles returns only an outcome/proof string from the resolver; it does not implement zero-knowledge proofs or independently verified age checks.
 
 ## Exclusion
 
@@ -132,7 +132,7 @@ Only an authorized identity-resolution process should be able to connect the pro
 Profiles distinguishes three different actions:
 
 1. **Disclosure** — showing information to an authorized observer.
-2. **Verification** — proving a proposition without necessarily revealing the underlying fact.
+2. **Verification** — a trusted process may establish a proposition without revealing the underlying fact; the Profiles core itself does not perform that verification.
 3. **Licensing** — explicitly offering selected information for an economic purpose.
 
 One does not imply another.
