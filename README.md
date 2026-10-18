@@ -6,11 +6,11 @@
 [![NuGet version](https://img.shields.io/nuget/v/TheSingularityWorkshop.Profiles?style=flat-square&logo=nuget&logoColor=white)](https://www.nuget.org/packages/TheSingularityWorkshop.Profiles)
 [![NuGet downloads](https://img.shields.io/nuget/dt/TheSingularityWorkshop.Profiles?logo=nuget&style=flat-square)](https://www.nuget.org/packages/TheSingularityWorkshop.Profiles)
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/TrentBest/Profiles/build.yml?branch=development&style=flat-square&logo=github)](https://github.com/TrentBest/Profiles/actions/workflows/build.yml)
-[![Last commit](https://img.shields.io/github/last-commit/TrentBest/Profiles/development)](https://github.com/TrentBest/Profiles/commits/development)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/TrentBest/TheSingularityWorkshop.Profiles/build.yml?branch=development&style=flat-square&logo=github)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/actions/workflows/build.yml)
+[![Last commit](https://img.shields.io/github/last-commit/TrentBest/TheSingularityWorkshop.Profiles/development)](https://github.com/TrentBest/Profiles/commits/development)
 [![Code Coverage](https://codecov.io/gh/TrentBest/Profiles/graph/badge.svg)](https://codecov.io/gh/TrentBest/Profiles)
 
-![Profiles architecture: a Profile's owned information is transformed by disclosure policy into an observer-specific representation.](https://raw.githubusercontent.com/TrentBest/Profiles/development/docs/images/profiles-architecture.svg)
+![Source-informed Profiles diagram: Profile.RepresentTo filters claims by disclosure rule, applies display-name and avatar rules, and returns an observer-specific projection. Provenance and GUI.SVG status are identified inside the image.](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Profiles/development/docs/images/profiles-architecture.svg)
 
 *The same entity can be represented differently to different observers—without confusing identity with what each observer is allowed to see.*
 
@@ -53,7 +53,7 @@ A canonical identity answers **“Which entity is this?”** A representation an
        only information this observer may receive
 ~~~
 
-For example, the same entity may present a public display name to a visitor, a different avatar to a friend, and an anonymous representation to an excluded observer. The representation is a domain-level projection—not merely a UI view model.
+For example, the same entity may present a public display name to a visitor, a different avatar to a friend, and an anonymous representation to an excluded observer. The representation is a domain-level projection—not merely a UI view model. See the linked source-informed SVG for current per-key disclosure, group context, avatar precedence, excluded-observer behavior, and the explicit security boundary.
 
 ### Micro-data: disclose the smallest useful piece
 
@@ -83,7 +83,7 @@ Install the package into a .NET 8 project:
 dotnet add package TheSingularityWorkshop.Profiles
 ~~~
 
-The following is a **source-shaped example** of the intended flow; consult the consuming guide for full setup, prerequisites, and examples.
+The following is a **source-shaped example** of the current API flow; consult the consuming guide for full setup, prerequisites, and examples. The visual above is source-informed but hand-authored, not a runtime-generated capture.
 
 ~~~csharp
 var language = ProfileAttributeDefinition.Create(
@@ -100,7 +100,7 @@ var observerId = ProfileId.New();
 var representation = profile.RepresentTo(observerId);
 ~~~
 
-In plain language: create an entity profile, add one small claim, declare the audience allowed to receive it, then request the observer-specific representation. Configuration methods return the profile so related setup can be chained, while the disclosure decision remains explicit and visible. The important step is not merely storing a value—it is making the disclosure boundary explicit.
+In plain language: create an entity profile, add one small claim, declare the audience allowed to receive it, then request the observer-specific representation. The language claim is public here; the display name is still hidden unless its separate `display-name` rule is configured. Configuration methods return the profile so related setup can be chained, while the disclosure decision remains explicit and visible. The important step is not merely storing a value—it is making the disclosure boundary explicit.
 
 **Expected behavior:** the returned representation is the observer-facing projection governed by the profile's disclosure and exclusion rules. Do not pass the complete Profile to an untrusted renderer or remote consumer when it only needs the representation.
 
