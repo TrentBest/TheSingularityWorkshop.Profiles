@@ -72,7 +72,7 @@ Representation
 
 An application should be able to reason about the difference explicitly.
 
-An excluded observer receives an anonymous representation rather than the profile's claims.
+An excluded observer receives a representation that retains the stable ProfileId but has a null display name, the literal `anonymous` avatar, and no claims. This is the exact projection behavior, not revocation of access to a Profile object already held elsewhere.
 
 ## 5. Unknown is a first-class result
 
@@ -92,32 +92,15 @@ NotSatisfied
 Unknown
 ~~~
 
-Unknown prevents missing information from being silently interpreted as false.
+The default `ProfileAssumptionResolver` maps `KeyNotFoundException` and `InvalidOperationException` thrown by the configured predicate to `Unknown`. It maps a normal boolean result to `Satisfied` or `NotSatisfied`; other exceptions are not swallowed.
 
-It also allows an experience to ask for additional verification without requiring the underlying claim to be disclosed.
+This is a small in-process predicate contract, not a privacy-preserving proof engine. The predicate receives the original `Profile` and may inspect raw claims. If an experience needs to avoid disclosing the underlying value, it must design a trusted resolver and host boundary that actually enforce that requirement.
 
 ## 6. Verification is separate from assertion
 
-Profiles carries optional provenance and verification time because a claim may have a source.
+`ProfileClaim` carries an optional provenance string and optional verification timestamp; `IsVerified` means only that the timestamp is present. These fields are metadata, not independent verification, validation of provenance, expiry handling, or proof that the source is authoritative.
 
-It does not attempt to declare which sources are legally authoritative.
-
-A mature system can layer:
-
-~~~text
-Profile claim
-     |
-     v
-Verification provider
-     |
-     v
-Proof / provenance
-     |
-     v
-Experience assumption
-~~~
-
-This keeps the neutral domain useful across jurisdictions and applications.
+A host may compose a trusted verification provider with the profile and its assumption resolver. That integration is a future/host capability, not behavior performed automatically by this package. The neutral domain does not establish the provider's authority or validate evidence.
 
 ## 7. Identity sovereignty
 
@@ -135,13 +118,13 @@ Profiles deliberately distinguishes:
 
 ~~~text
 Disclosure
-    = an observer may receive information.
+    = a configured rule allows a representation to include information.
 
 Verification
-    = a proposition can be established.
+    = a trusted process establishes a proposition (not supplied by the core).
 
 Licensing
-    = the owner explicitly permits an economic use.
+    = the owner enables a policy and allow-lists eligible keys.
 ~~~
 
 None of these should silently imply another.
@@ -175,7 +158,7 @@ Groups are not only social constructs.
 
 They provide a reusable vocabulary for friends, family, coworkers, customers, guild members, trusted creators, and application-specific audiences.
 
-The same group can eventually influence several forms of interaction without requiring Profiles to become a renderer or communications engine.
+In the current implementation, profile-owned group membership can affect Group disclosure rules and group-avatar selection. Groups do not automatically grant permissions for unrelated actions, and arbitrary relationships are not consulted by `RepresentTo`.
 
 ## 11. Provider neutrality
 
@@ -207,19 +190,16 @@ The Workshop can therefore use Profiles as a common language while different Exp
 
 ## 13. The deeper abstraction
 
-The most important abstraction is not Profile.
-
-It is the relationship:
+The most important abstraction is the relationship:
 
 ~~~text
-Entity
-   +
-Information
-   +
-Policy
-   =
-Observer-specific representation
+Entity + information + disclosure policy + observer context
+                              |
+                              v
+                 observer-specific representation
 ~~~
+
+The current implementation evaluates per-claim rules and display-name visibility, resolves an avatar, and returns a read-only claims dictionary. The SVG linked from the README visualizes that exact boundary and labels what was and was not used to create it.
 
 That relationship is what allows a shared ecosystem to contain many kinds of software without requiring every application to own or understand every user's entire identity record.
 
