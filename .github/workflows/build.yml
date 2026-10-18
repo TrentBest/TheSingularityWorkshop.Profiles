@@ -52,7 +52,7 @@ jobs:
         uses: codecov/codecov-action@v6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          slug: TrentBest/Profiles
+          slug: TrentBest/TheSingularityWorkshop.Profiles
           files: ./TestResults/coverage.cobertura.xml
           fail_ci_if_error: true
 
