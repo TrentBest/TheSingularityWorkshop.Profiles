@@ -26,6 +26,43 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
+      - name: Audit documentation and visual provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          repo = "TrentBest/TheSingularityWorkshop.Profiles"
+          readme = Path("README.md").read_text(encoding="utf-8")
+          architecture = Path("docs/ARCHITECTURE.md").read_text(encoding="utf-8")
+          visual = Path("docs/images/profiles-architecture.svg").read_text(encoding="utf-8")
+          workflow = Path(".github/workflows/build.yml").read_text(encoding="utf-8")
+          project = Path("TheSingularityWorkshop.Profiles.csproj").read_text(encoding="utf-8")
+
+          expected_visual_url = f"raw.githubusercontent.com/{repo}/development/docs/images/profiles-architecture.svg"
+          if expected_visual_url not in readme:
+              raise SystemExit("README must embed the architecture visual from this repository's development branch.")
+          if "images/profiles-architecture.svg" not in architecture:
+              raise SystemExit("Architecture guide must link to the checked-in architecture visual.")
+          for source_file in ("Profile.cs", "Disclosure.cs", "ProfileRepresentation.cs"):
+              if source_file not in visual:
+                  raise SystemExit(f"Architecture visual must name its inspected source file: {source_file}")
+          for provenance in ("source-informed diagram", "hand-authored, not generated", "GUI.SVG: NOT USED"):
+              if provenance not in visual:
+                  raise SystemExit(f"Architecture visual must disclose provenance accurately: {provenance}")
+          for path, content in (
+              ("README.md", readme),
+              (".github/workflows/build.yml", workflow),
+              ("TheSingularityWorkshop.Profiles.csproj", project),
+          ):
+              if "TrentBest/Profiles" in content:
+                  raise SystemExit(f"{path} contains a stale repository slug; use {repo}.")
+          if f"slug: {repo}" not in workflow:
+              raise SystemExit("Codecov upload must use the canonical repository slug.")
+          print("PASS: README, architecture guide, SVG provenance, repository links, and Codecov slug agree.")
+          PY
+
       - name: Restore
         run: dotnet restore tests/TheSingularityWorkshop.Profiles.Tests/TheSingularityWorkshop.Profiles.Tests.csproj
 
