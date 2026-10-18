@@ -2,7 +2,7 @@
 
 ## Package identity
 
-- Repository: TrentBest/Profiles
+- Repository: TrentBest/TheSingularityWorkshop.Profiles
 - Package ID: TheSingularityWorkshop.Profiles
 - Current version: 0.1.0-alpha.1
 - Target framework: net8.0
@@ -14,7 +14,7 @@ The repository-scoped publisher should use:
 
 ~~~text
 Repository:
-TrentBest/Profiles
+TrentBest/TheSingularityWorkshop.Profiles
 
 Glob asset filter:
 TheSingularityWorkshop.Profiles
@@ -75,4 +75,4 @@ SingularityWarehouse's set-based, mathematically bounded security theory may inf
 
 Publication is an explicit release action.
 
-The combined build workflow supports manual validation and includes a guarded NuGet publishing job. The publishing condition retains an explicit `&& false` release gate, so selecting the publish input cannot publish the package. Building or validating a package is not approval to publish it. Do not turn publication into an automatic side effect of ordinary development commits.
+The combined build workflow supports manual validation and an explicit NuGet publishing action. Dispatching it with `publish=false` validates and packages without publishing. Dispatching it with `publish=true` on `development` runs the publish job after the verification job succeeds; this is a live release action, not a disabled `&& false` gate. Building or validating a package is not approval to publish it. Do not select `true` unless publication is deliberately approved.
