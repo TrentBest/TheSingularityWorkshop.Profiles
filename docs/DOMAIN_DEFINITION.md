@@ -51,7 +51,7 @@ These are the intended release invariants. Each must be backed by focused tests 
 - **Identity is not presentation.** Two observers may receive different representations of one Profile without creating different canonical identities.
 - **Adding a claim does not publish it.** Disclosure is explicit; the absence of a rule must never accidentally broaden disclosure.
 - **Disclosure is per claim.** Permission to receive one claim does not imply permission to receive unrelated claims.
-- **Unknown is not false.** Missing, invalid, or unresolved input must not be silently converted to `NotSatisfied` unless a specific, documented resolver defines that behavior.
+- **Unknown is not false.** The default resolver maps `KeyNotFoundException` and `InvalidOperationException` from its predicate to `Unknown`; a returned `false` maps to `NotSatisfied`. Other exception types can propagate. A custom resolver must document its own handling of invalid or unresolved input.
 - **Assertions are not verification.** Stored values, provenance, and timestamps do not establish trust or legal authority on their own.
 - **Groups and relationships are not implicit grants.** Only documented disclosure rules and trusted host-provided membership context may influence the audience decision.
 - **Exclusion is conservative.** An excluded observer's representation must not expose ordinary profile claims or private identity links.
@@ -100,7 +100,7 @@ The host is responsible for protecting the original Profile and for supplying tr
 
 - `Satisfied`: the configured resolver concluded that the proposition is satisfied under its stated rules.
 - `NotSatisfied`: the resolver concluded that the proposition is not satisfied under its stated rules.
-- `Unknown`: the resolver cannot responsibly decide from available or valid input.
+- `Unknown`: the resolver reports that it cannot decide. The default in-process resolver returns this for `KeyNotFoundException` and `InvalidOperationException` thrown by the predicate; it does not catch every malformed-input or provider exception.
 
 The result is only as trustworthy as the resolver, inputs, and proof semantics. The neutral core must not imply that an in-process predicate establishes independent verification.
 
@@ -121,7 +121,7 @@ Before the next NuGet package is released:
 - [ ] Every public type and member maps to this vocabulary or is removed/renamed with a documented compatibility decision.
 - [ ] Disclosure defaults, unknown keys, exclusions, group context, and identity-link visibility have negative tests.
 - [ ] Mutable claim values and collection-copy behavior are explicit in API docs and tested where possible.
-- [ ] Assumption results and resolver limitations are tested and shown in a compiling consumer example.
+- [ ] Assumption results, the default resolver's narrow exception handling, and the absence of built-in verification/proof guarantees are tested and shown in a compiling consumer example.
 - [ ] README, architecture, theory, privacy, API, consuming, and how-to docs agree with source behavior.
 - [ ] Navigation links and packaged documentation assets are verified.
 - [ ] Restore, build, tests, coverage, XML documentation, and NuGet package audit pass on `development`.
