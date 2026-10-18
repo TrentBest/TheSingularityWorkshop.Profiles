@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       publish:
-        description: 'Publish the verified package to NuGet.org (release gate remains disabled in this workflow)'
+        description: 'Publish the verified package to NuGet.org (select false for validation only; true is an actual release action)'
         required: true
         default: false
         type: boolean
