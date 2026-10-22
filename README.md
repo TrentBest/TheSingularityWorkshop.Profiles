@@ -107,14 +107,14 @@ In plain language: create an entity profile, add one small claim, declare the au
 ## 🟪 05 Documentation and theory
 
 - [Gallery](Gallery.md) — source-grounded tour, visual explanation, verification guidance, and the current status of living-documentation tooling.
-- [Consuming Profiles](https://github.com/TrentBest/Profiles/blob/development/docs/CONSUMING.md) — installation, common tasks, and examples for integrating the package into an application.
-- [How-to guide](https://github.com/TrentBest/Profiles/blob/development/docs/HOW_TO.md) — task-oriented recipes for common profile operations.
-- [Theory](https://github.com/TrentBest/Profiles/blob/development/docs/THEORY.md) — the mental model behind entity abstraction, micro-data, identity sovereignty, and observer-specific disclosure.
-- [Architecture](https://github.com/TrentBest/Profiles/blob/development/docs/ARCHITECTURE.md) — responsibility boundaries, dependency direction, and the package's integration seams.
-- [Domain definition](https://github.com/TrentBest/Profiles/blob/development/docs/DOMAIN_DEFINITION.md) — the normative vocabulary, invariants, ownership boundaries, and next-release audit checklist.
-- [Privacy model](https://github.com/TrentBest/Profiles/blob/development/docs/PRIVACY.md) — the privacy principles and distinctions the domain is designed to represent; not a legal-compliance guarantee.
-- [API map](https://github.com/TrentBest/Profiles/blob/development/docs/API.md) — a conceptual guide to the public types; XML API documentation remains authoritative for member-level details.
-- [Publishing and package metadata](https://github.com/TrentBest/Profiles/blob/development/docs/PUBLISHING.md) — package/release preparation information.
+- [Consuming Profiles](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/CONSUMING.md) — installation, common tasks, and examples for integrating the package into an application.
+- [How-to guide](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/HOW_TO.md) — task-oriented recipes for common profile operations.
+- [Theory](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/THEORY.md) — the mental model behind entity abstraction, micro-data, identity sovereignty, and observer-specific disclosure.
+- [Architecture](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/ARCHITECTURE.md) — responsibility boundaries, dependency direction, and the package's integration seams.
+- [Domain definition](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/DOMAIN_DEFINITION.md) — the normative vocabulary, invariants, ownership boundaries, and next-release audit checklist.
+- [Privacy model](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/PRIVACY.md) — the privacy principles and distinctions the domain is designed to represent; not a legal-compliance guarantee.
+- [API map](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/API.md) — a conceptual guide to the public types; XML API documentation remains authoritative for member-level details.
+- [Publishing and package metadata](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/PUBLISHING.md) — package/release preparation information.
 
 ## Domain vocabulary at a glance
 
