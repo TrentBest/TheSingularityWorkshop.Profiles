@@ -27,8 +27,16 @@ public sealed class ProfileDataLicensePolicy
     }
 
     /// <summary>Removes one attribute from the licensing allow-list.</summary>
-    public bool Disallow(string attributeKey) => _attributeKeys.Remove(attributeKey);
+    public bool Disallow(string attributeKey)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(attributeKey);
+        return _attributeKeys.Remove(attributeKey);
+    }
 
     /// <summary>Tests whether one attribute is eligible for licensing.</summary>
-    public bool CanLicense(string attributeKey) => Enabled && _attributeKeys.Contains(attributeKey);
+    public bool CanLicense(string attributeKey)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(attributeKey);
+        return Enabled && _attributeKeys.Contains(attributeKey);
+    }
 }
