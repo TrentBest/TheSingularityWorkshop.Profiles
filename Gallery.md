@@ -15,6 +15,7 @@ Profiles is a provider-neutral domain model for describing an entity, its claims
 - [Theory](docs/THEORY.md) — why identity, information, disclosure, and representation are separate.
 - [Architecture](docs/ARCHITECTURE.md) — the actual projection flow and package boundaries.
 - [Profile UML and use cases](docs/UML/ProfileUML.md) — source-checked target-centered type map, explicit evidence scope, and human use cases.
+- [Profile UML and use cases](docs/UML/ProfileUML.md) — source-checked target-centered type map, explicit evidence scope, and human use cases.
 - [Privacy model](docs/PRIVACY.md) — the intended privacy properties and explicit limitations.
 
 ## 2. Try the domain model
