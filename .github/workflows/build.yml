@@ -56,7 +56,7 @@ jobs:
               (".github/workflows/build.yml", workflow),
               ("TheSingularityWorkshop.Profiles.csproj", project),
           ):
-              if "TrentBest/Profiles" in content:
+              if "TrentBest/TheSingularityWorkshop.Profiles" in content:
                   raise SystemExit(f"{path} contains a stale repository slug; use {repo}.")
           if f"slug: {repo}" not in workflow:
               raise SystemExit("Codecov upload must use the canonical repository slug.")
