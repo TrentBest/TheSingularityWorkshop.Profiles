@@ -53,7 +53,6 @@ jobs:
                   raise SystemExit(f"Architecture visual must disclose provenance accurately: {provenance}")
           for path, content in (
               ("README.md", readme),
-              (".github/workflows/build.yml", workflow),
               ("TheSingularityWorkshop.Profiles.csproj", project),
           ):
               if "TrentBest/Profiles" in content:
