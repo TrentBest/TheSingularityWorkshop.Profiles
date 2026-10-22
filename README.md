@@ -111,7 +111,7 @@ In plain language: create an entity profile, add one small claim, declare the au
 - [How-to guide](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/HOW_TO.md) — task-oriented recipes for common profile operations.
 - [Theory](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/THEORY.md) — the mental model behind entity abstraction, micro-data, identity sovereignty, and observer-specific disclosure.
 - [Architecture](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/ARCHITECTURE.md) — responsibility boundaries, dependency direction, and the package's integration seams.
-- [Domain definition](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/DOMAIN_DEFINITION.md) — the normative vocabulary, invariants, ownership boundaries, and next-release audit checklist.
+- [Domain model](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/DOMAIN_DEFINITION.md) — core concepts, disclosure behavior, identity boundaries, and responsibilities owned by the consuming application.
 - [Privacy model](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/PRIVACY.md) — the privacy principles and distinctions the domain is designed to represent; not a legal-compliance guarantee.
 - [API map](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/API.md) — a conceptual guide to the public types; XML API documentation remains authoritative for member-level details.
 - [Publishing and package metadata](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/PUBLISHING.md) — package/release preparation information.
