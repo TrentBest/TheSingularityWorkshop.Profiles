@@ -309,6 +309,19 @@ public sealed class ProfileTests
     }
 
     [Fact]
+    public void DisclosureRuleRejectsUninitializedRequesterGroupIds()
+    {
+        var rule = new DisclosureRule(
+            "language",
+            DisclosureScope.Group,
+            allowedGroups: new HashSet<ProfileId> { ProfileId.New() });
+
+        Assert.Throws<ArgumentException>(() => rule.Allows(
+            ProfileId.New(),
+            new HashSet<ProfileId> { default }));
+    }
+
+    [Fact]
     public void ExcludedObserverReceivesOnlyAnonymousRepresentation()
     {
         var profile = CreateProfile();
