@@ -255,6 +255,18 @@ public sealed class ProfileTests
     }
 
     [Fact]
+    public void DisplayNameDisclosureOverrideReplacesCanonicalDisplayName()
+    {
+        var profile = new Profile(ProfileEntityKind.Individual, "Ari");
+        profile.SetDisclosureRule(new DisclosureRule(
+            "display-name",
+            DisclosureScope.Public,
+            representationOverride: "A."));
+
+        Assert.Equal("A.", profile.RepresentTo(ProfileId.New()).DisplayName);
+    }
+
+    [Fact]
     public void ExcludedObserverReceivesOnlyAnonymousRepresentation()
     {
         var profile = CreateProfile();
