@@ -23,11 +23,29 @@ public sealed class ProfileGroup
     public IReadOnlySet<ProfileId> Members => new HashSet<ProfileId>(_members);
 
     /// <summary>Adds an entity.</summary>
-    public bool Add(ProfileId entity) => _members.Add(entity);
+    public bool Add(ProfileId entity)
+    {
+        EnsureInitialized(entity, nameof(entity));
+        return _members.Add(entity);
+    }
 
     /// <summary>Removes an entity.</summary>
-    public bool Remove(ProfileId entity) => _members.Remove(entity);
+    public bool Remove(ProfileId entity)
+    {
+        EnsureInitialized(entity, nameof(entity));
+        return _members.Remove(entity);
+    }
 
     /// <summary>Tests membership.</summary>
-    public bool Contains(ProfileId entity) => _members.Contains(entity);
+    public bool Contains(ProfileId entity)
+    {
+        EnsureInitialized(entity, nameof(entity));
+        return _members.Contains(entity);
+    }
+
+    private static void EnsureInitialized(ProfileId id, string parameterName)
+    {
+        if (id.Value == Guid.Empty)
+            throw new ArgumentException("Profile IDs must be initialized.", parameterName);
+    }
 }
