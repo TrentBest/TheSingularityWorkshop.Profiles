@@ -299,6 +299,16 @@ public sealed class ProfileTests
     }
 
     [Fact]
+    public void RepresentationRejectsUninitializedObserverGroupIds()
+    {
+        var profile = CreateProfile();
+
+        Assert.Throws<ArgumentException>(() => profile.RepresentTo(
+            ProfileId.New(),
+            new HashSet<ProfileId> { default }));
+    }
+
+    [Fact]
     public void ExcludedObserverReceivesOnlyAnonymousRepresentation()
     {
         var profile = CreateProfile();
