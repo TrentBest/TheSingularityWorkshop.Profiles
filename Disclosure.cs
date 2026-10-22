@@ -42,6 +42,11 @@ public sealed record DisclosureRule
         if (scope != DisclosureScope.Group && allowedGroups is { Count: > 0 })
             throw new ArgumentException("Group IDs are only valid for Group disclosure.", nameof(allowedGroups));
 
+        if (allowedObservers is not null && allowedObservers.Any(id => id.Value == Guid.Empty))
+            throw new ArgumentException("Observer IDs must be initialized.", nameof(allowedObservers));
+        if (allowedGroups is not null && allowedGroups.Any(id => id.Value == Guid.Empty))
+            throw new ArgumentException("Group IDs must be initialized.", nameof(allowedGroups));
+
         AttributeKey = attributeKey;
         Scope = scope;
         _allowedObservers = allowedObservers is null ? [] : new HashSet<ProfileId>(allowedObservers);
