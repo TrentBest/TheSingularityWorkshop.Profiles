@@ -65,12 +65,19 @@ public sealed record DisclosureRule
     public string? RepresentationOverride { get; }
 
     /// <summary>Determines whether the requester is permitted.</summary>
-    public bool Allows(ProfileId requester, IReadOnlySet<ProfileId> requesterGroups) => Scope switch
+    public bool Allows(ProfileId requester, IReadOnlySet<ProfileId> requesterGroups)
     {
+        if (requester.Value == Guid.Empty)
+            throw new ArgumentException("Requester ID must be initialized.", nameof(requester));
+        ArgumentNullException.ThrowIfNull(requesterGroups);
+
+        return Scope switch
+        {
         DisclosureScope.Private => false,
         DisclosureScope.Public => true,
         DisclosureScope.Explicit => _allowedObservers.Contains(requester),
         DisclosureScope.Group => _allowedGroups.Overlaps(requesterGroups),
         _ => false
-    };
+        };
+    }
 }
