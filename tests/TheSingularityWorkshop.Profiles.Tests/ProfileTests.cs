@@ -278,6 +278,7 @@ public sealed class ProfileTests
         Assert.Throws<ArgumentException>(() => profile.SetAvatar(defaultId, "avatar"));
         Assert.Throws<ArgumentException>(() => profile.DefineGroup("Friends").Add(defaultId));
         Assert.Throws<ArgumentException>(() => profile.DefineGroup("Friends").Contains(defaultId));
+        Assert.Throws<ArgumentException>(() => profile.DefineGroup("Friends").Remove(defaultId));
         Assert.Throws<ArgumentException>(() => new DisclosureRule("name", DisclosureScope.Public)
             .Allows(defaultId, new HashSet<ProfileId>()));
     }
