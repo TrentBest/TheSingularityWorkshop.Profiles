@@ -109,16 +109,22 @@ public sealed class Profile
     /// <summary>Excludes an observer from detailed representations.</summary>
     public Profile Exclude(ProfileId observer)
     {
+        EnsureInitialized(observer, nameof(observer));
         _excluded.Add(observer);
         return this;
     }
 
     /// <summary>Removes an observer from the exclusion list.</summary>
-    public bool RemoveExclusion(ProfileId observer) => _excluded.Remove(observer);
+    public bool RemoveExclusion(ProfileId observer)
+    {
+        EnsureInitialized(observer, nameof(observer));
+        return _excluded.Remove(observer);
+    }
 
     /// <summary>Selects an avatar for one observer.</summary>
     public Profile SetAvatar(ProfileId observer, string avatar)
     {
+        EnsureInitialized(observer, nameof(observer));
         ArgumentException.ThrowIfNullOrWhiteSpace(avatar);
         _avatars[ObserverAvatarKey(observer)] = avatar;
         return this;
@@ -147,6 +153,7 @@ public sealed class Profile
     /// <summary>Creates the observer-specific representation.</summary>
     public ProfileRepresentation RepresentTo(ProfileId observer, IReadOnlySet<ProfileId>? observerGroups = null)
     {
+        EnsureInitialized(observer, nameof(observer));
         var effectiveGroups = observerGroups is null
             ? new HashSet<ProfileId>()
             : new HashSet<ProfileId>(observerGroups);
@@ -195,6 +202,12 @@ public sealed class Profile
             return null;
 
         return rule.RepresentationOverride ?? DisplayName;
+    }
+
+    private static void EnsureInitialized(ProfileId id, string parameterName)
+    {
+        if (id.Value == Guid.Empty)
+            throw new ArgumentException("Profile IDs must be initialized.", parameterName);
     }
 
     private static string ObserverAvatarKey(ProfileId observer) => $"observer:{observer.Value:D}";
