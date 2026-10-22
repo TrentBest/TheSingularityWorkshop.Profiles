@@ -146,6 +146,10 @@ Minimal access event containing profile, observer, and timestamp.
 
 Boundary for sending access events to application-owned audit/persistence infrastructure. The consuming application supplies the implementation and decides retention, storage, and access controls. Creating a representation does not automatically record an access event; the host must invoke its recorder at the appropriate policy boundary.
 
+## Type diagrams and use cases
+
+- [Profile UML and use cases](UML/ProfileUML.md) — a source-checked structural view of the central `Profile` type. The page records its source scope and is manually authored, not generated.
+
 ## Dependency philosophy
 
 The Profiles domain intentionally has no required dependency on Entity Framework, SQL, HTTP, cloud storage, authentication SDKs, payment SDKs, or rendering frameworks.
