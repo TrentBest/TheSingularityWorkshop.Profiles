@@ -171,7 +171,7 @@ public sealed class Profile
 
         return new ProfileRepresentation(
             Id,
-            IsDisplayNameVisible(observer, effectiveGroups) ? DisplayName : null,
+            ResolveDisplayName(observer, effectiveGroups),
             ResolveAvatar(observer, effectiveGroups),
             claims);
     }
@@ -189,8 +189,13 @@ public sealed class Profile
         return _avatars.TryGetValue(ProfileAvatarKey, out var fallback) ? fallback : "anonymous";
     }
 
-    private bool IsDisplayNameVisible(ProfileId observer, IReadOnlySet<ProfileId> observerGroups)
-        => _rules.TryGetValue("display-name", out var rule) && rule.Allows(observer, observerGroups);
+    private string? ResolveDisplayName(ProfileId observer, IReadOnlySet<ProfileId> observerGroups)
+    {
+        if (!_rules.TryGetValue("display-name", out var rule) || !rule.Allows(observer, observerGroups))
+            return null;
+
+        return rule.RepresentationOverride ?? DisplayName;
+    }
 
     private static string ObserverAvatarKey(ProfileId observer) => $"observer:{observer.Value:D}";
     private static string GroupAvatarKey(string groupName) => $"group:{groupName}";
