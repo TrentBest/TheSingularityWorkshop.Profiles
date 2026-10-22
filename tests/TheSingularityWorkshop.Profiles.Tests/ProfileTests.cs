@@ -153,6 +153,21 @@ public sealed class ProfileTests
     }
 
     [Fact]
+    public void DisclosureRulesRejectUninitializedAudienceIds()
+    {
+        var defaultId = default(ProfileId);
+
+        Assert.Throws<ArgumentException>(() => new DisclosureRule(
+            "email",
+            DisclosureScope.Explicit,
+            allowedObservers: new HashSet<ProfileId> { defaultId }));
+        Assert.Throws<ArgumentException>(() => new DisclosureRule(
+            "email",
+            DisclosureScope.Group,
+            allowedGroups: new HashSet<ProfileId> { defaultId }));
+    }
+
+    [Fact]
     public void PublicClaimIsIncluded()
     {
         var profile = CreateProfile();
