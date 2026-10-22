@@ -1,6 +1,6 @@
-# Profiles Domain Definition
+# Profiles Domain Model
 
-This document defines the semantic territory owned by `TheSingularityWorkshop.Profiles`. It is the domain contract to audit against the public API, tests, XML documentation, and consuming examples before the next package release.
+Profiles gives applications a reusable vocabulary for describing entities, their claims and relationships, and the information each observer may receive. This guide explains the concepts represented by the package and where application responsibilities begin; practical setup and code examples are in the [consumer guide](CONSUMING.md).
 
 ## 1. The domain in one sentence
 
@@ -44,9 +44,9 @@ Profiles owns the neutral semantics and in-process contracts for:
 7. **Transparency metadata** — public exposure reporting and minimal access-record contracts.
 8. **Opt-in data-use policy** — a domain distinction between disclosure and permission for a defined use.
 
-## 4. Invariants the implementation must preserve
+## 4. How the domain behaves
 
-These are the intended release invariants. Each must be backed by focused tests and documentation that matches the actual public API.
+The following points describe the package's behavioral boundaries. They are useful when choosing APIs and deciding which responsibilities belong in the host application.
 
 - **Identity is not presentation.** Two observers may receive different representations of one Profile without creating different canonical identities.
 - **Adding a claim does not publish it.** Disclosure is explicit; the absence of a rule must never accidentally broaden disclosure.
@@ -114,17 +114,11 @@ The result is only as trustworthy as the resolver, inputs, and proof semantics. 
 - **Access transparency vs. surveillance:** minimal information about access vs. unrelated private information about the accessor.
 - **Domain contract vs. infrastructure:** portable semantics vs. persistence, transport, UI, and external authority.
 
-## 9. Release audit checklist
+## 9. Using Profiles
 
-Before the next NuGet package is released:
+- [Consuming Profiles](CONSUMING.md) — installation, common tasks, and code examples.
+- [How-to guide](HOW_TO.md) — task-oriented recipes.
+- [Theory](THEORY.md) — the reasoning behind the separation of identity, disclosure, verification, and licensing.
+- [Gallery](../Gallery.md) — a guided overview with source-informed visuals.
 
-- [ ] Every public type and member maps to this vocabulary or is removed/renamed with a documented compatibility decision.
-- [ ] Disclosure defaults, unknown keys, exclusions, group context, and identity-link visibility have negative tests.
-- [ ] Mutable claim values and collection-copy behavior are explicit in API docs and tested where possible.
-- [ ] Assumption results, the default resolver's narrow exception handling, and the absence of built-in verification/proof guarantees are tested and shown in a compiling consumer example.
-- [ ] README, architecture, theory, privacy, API, consuming, and how-to docs agree with source behavior.
-- [ ] Navigation links and packaged documentation assets are verified.
-- [ ] Restore, build, tests, coverage, XML documentation, and NuGet package audit pass on `development`.
-- [ ] The explicit manual publish gate and Trusted Publishing configuration are verified without accidentally publishing.
-
-This document defines the domain target; it is not evidence that every invariant has already been implemented or verified. Implementation status must be established from source, tests, CI, and the packed artifact.
+Use the consumer guide for concrete API calls and the theory guide for deeper context. Profiles provides domain contracts and in-process policy projections; your application remains responsible for protecting the original profile and enforcing security at its own boundaries.
