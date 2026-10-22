@@ -75,6 +75,8 @@ public sealed record DisclosureRule
         if (requester.Value == Guid.Empty)
             throw new ArgumentException("Requester ID must be initialized.", nameof(requester));
         ArgumentNullException.ThrowIfNull(requesterGroups);
+        if (requesterGroups.Any(groupId => groupId.Value == Guid.Empty))
+            throw new ArgumentException("Requester group IDs must be initialized.", nameof(requesterGroups));
 
         return Scope switch
         {
