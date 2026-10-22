@@ -154,7 +154,7 @@ NuGet publication remains an explicit release action; documentation or CI change
 
 ![Trent Best](https://avatars.githubusercontent.com/u/16405167?v=4&size=200)
 
-[GitHub — Profiles](https://github.com/TrentBest/Profiles)
+[GitHub — Profiles](https://github.com/TrentBest/TheSingularityWorkshop.Profiles)
 
 **The Singularity Workshop — Tools for the curious, the bold, and the systemically inclined.**
 
