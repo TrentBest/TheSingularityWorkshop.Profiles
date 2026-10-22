@@ -267,6 +267,22 @@ public sealed class ProfileTests
     }
 
     [Fact]
+    public void UninitializedObserverIdsAreRejectedAtDisclosureBoundaries()
+    {
+        var profile = CreateProfile();
+        var defaultId = default(ProfileId);
+
+        Assert.Throws<ArgumentException>(() => profile.RepresentTo(defaultId));
+        Assert.Throws<ArgumentException>(() => profile.Exclude(defaultId));
+        Assert.Throws<ArgumentException>(() => profile.RemoveExclusion(defaultId));
+        Assert.Throws<ArgumentException>(() => profile.SetAvatar(defaultId, "avatar"));
+        Assert.Throws<ArgumentException>(() => profile.DefineGroup("Friends").Add(defaultId));
+        Assert.Throws<ArgumentException>(() => profile.DefineGroup("Friends").Contains(defaultId));
+        Assert.Throws<ArgumentException>(() => new DisclosureRule("name", DisclosureScope.Public)
+            .Allows(defaultId, new HashSet<ProfileId>()));
+    }
+
+    [Fact]
     public void ExcludedObserverReceivesOnlyAnonymousRepresentation()
     {
         var profile = CreateProfile();
