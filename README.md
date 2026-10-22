@@ -106,7 +106,7 @@ In plain language: create an entity profile, add one small claim, declare the au
 
 ## 🟪 05 Documentation and theory
 
-- [Gallery](Gallery.md) — source-grounded tour, visual explanation, verification guidance, and the current status of living-documentation tooling.
+- [Gallery](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/Gallery.md) — source-grounded tour, visual explanation, verification guidance, and the current status of living-documentation tooling.
 - [Consuming Profiles](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/CONSUMING.md) — installation, common tasks, and examples for integrating the package into an application.
 - [How-to guide](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/HOW_TO.md) — task-oriented recipes for common profile operations.
 - [Theory](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/THEORY.md) — the mental model behind entity abstraction, micro-data, identity sovereignty, and observer-specific disclosure.
