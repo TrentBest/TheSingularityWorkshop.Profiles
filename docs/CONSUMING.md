@@ -1,6 +1,6 @@
 # Consuming Profiles
 
-This guide helps application developers add Profiles to an existing .NET 8 application and choose the right boundary for each responsibility. The examples are checked against the current source shape, but have not been independently compiled as a single tutorial project.
+This guide helps application developers add Profiles to an existing .NET 8 application and choose the right boundary for each responsibility. The primary claim/disclosure, group/avatar, assumption/licensing, and private identity-link examples are compile-checked against the package by `ConsumerGuideExamplesTests`. The guide is not a single copy-and-run application; application-specific infrastructure examples remain illustrative.
 
 ## What this package gives you
 
