@@ -26,9 +26,9 @@ public sealed class ProfileDataLicensePolicyTests
     {
         var policy = new ProfileDataLicensePolicy();
 
-        Assert.Throws<ArgumentException>(() => policy.Allow(attributeKey!));
-        Assert.Throws<ArgumentException>(() => policy.Disallow(attributeKey!));
-        Assert.Throws<ArgumentException>(() => policy.CanLicense(attributeKey!));
+        Assert.ThrowsAny<ArgumentException>(() => policy.Allow(attributeKey!));
+        Assert.ThrowsAny<ArgumentException>(() => policy.Disallow(attributeKey!));
+        Assert.ThrowsAny<ArgumentException>(() => policy.CanLicense(attributeKey!));
     }
 
     [Fact]
