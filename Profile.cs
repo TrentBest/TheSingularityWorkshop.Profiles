@@ -154,6 +154,12 @@ public sealed class Profile
     public ProfileRepresentation RepresentTo(ProfileId observer, IReadOnlySet<ProfileId>? observerGroups = null)
     {
         EnsureInitialized(observer, nameof(observer));
+        if (observerGroups is not null)
+        {
+            foreach (var groupId in observerGroups)
+                EnsureInitialized(groupId, nameof(observerGroups));
+        }
+
         var effectiveGroups = observerGroups is null
             ? new HashSet<ProfileId>()
             : new HashSet<ProfileId>(observerGroups);
