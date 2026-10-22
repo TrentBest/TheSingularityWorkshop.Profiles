@@ -219,3 +219,42 @@ Keep the distinction explicit:
 A mathematical bound can make a model precise; it does not automatically ensure that a host application invokes the model correctly or protects every route to the underlying data. Profiles implements a limited domain model, not a complete security enforcement system.
 
 This separation allows a future security package or host application to adopt set-based, capability-based, or other appropriate enforcement mechanisms while Profiles stays neutral and reusable.
+
+
+## 15. A profile is a policy input, not a universal permission token
+
+A profile can help an application express what information is associated with an entity and which claims belong in a particular representation. It does not, by itself, decide every operation that the entity, observer, or application may perform.
+
+For example, allowing an observer to receive a public language claim does not permit that observer to edit the profile, call a tool, enter a private group, read a database row, or purchase another claim. Those are separate operations with their own authorization and enforcement rules.
+
+A useful consumer flow is:
+
+~~~text
+trusted host establishes observer identity
+                  |
+                  v
+host supplies trusted group context
+                  |
+                  v
+Profile.RepresentTo(observer, groups)
+                  |
+                  v
+consumer receives filtered projection
+                  |
+                  v
+host separately enforces operation permissions
+~~~
+
+The observer ID and any externally supplied group IDs must come from trusted host logic. RepresentTo accepts group context as input; it cannot establish whether that context is truthful. The host must not let an untrusted caller choose arbitrary group IDs to widen their own disclosure.
+
+## 16. Mutability, snapshots, and lifecycle ownership
+
+Profiles is an in-process domain model, not an immutable database snapshot. The Profile remains mutable: a host may change its display name, claims, disclosure rules, groups, relationships, exclusions, and avatar choices. A representation copies its claims collection at creation time, so later changes to the source collection do not change the representation's key/value membership. However, arbitrary CLR claim values are not deep-cloned; mutable objects stored as claim values can still be shared by reference.
+
+This has three practical consequences:
+
+1. Prefer immutable claim values, or copy/serialize them at the application boundary when isolation is required.
+2. Create a fresh representation when the host needs a projection reflecting current profile state.
+3. Define persistence, concurrent mutation, revocation, retention, and audit semantics in the consuming application; the package does not supply a storage transaction or automatically invalidate copies already handed to consumers.
+
+An exclusion affects future calls to RepresentTo; it cannot retract information that another component has already copied, observed, cached, or transmitted. This is why privacy requires both a precise domain model and careful host-level lifecycle and enforcement decisions.
