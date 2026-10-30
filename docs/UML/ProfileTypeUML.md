@@ -93,7 +93,7 @@ No external package dependency or persistence provider is implied by these domai
 
 ### UC-PROFILE-03 — Exclude an observer
 
-- **Actor:** profile owner through the consuming application.
+- **Actor:** host-authorized profile-management code; the domain object itself does not authenticate an owner.
 - **Goal:** ensure a selected observer receives the anonymous projection.
 - **Trigger/preconditions:** initialized observer ProfileId.
 - **Success:** observer is added to the exclusion set; later representations for that observer contain no claims and no display name.
