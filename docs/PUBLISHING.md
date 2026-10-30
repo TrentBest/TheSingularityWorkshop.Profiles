@@ -35,7 +35,7 @@ The glob is intentionally restricted to the package ID. Do not use a wildcard wh
 9. Confirm no credentials, provider secrets, private identity data, or environment-specific configuration are packaged.
 10. Confirm the intended version.
 11. Review the NuGet Trusted Publishing configuration.
-12. Only then manually invoke the package workflow for an explicitly approved publication.
+12. Only after the repository owner explicitly declares a release, set the repository Actions variable `NUGET_PUBLISH_AUTHORIZED=true` and manually invoke the package workflow with publication set to `true`. Remove or set the variable to `false` after the authorized release.
 
 ## Build and inspect locally
 
@@ -75,4 +75,4 @@ SingularityWarehouse's set-based, mathematically bounded security theory may inf
 
 Publication is an explicit release action.
 
-The combined build workflow supports manual validation and an explicit NuGet publishing action. Dispatching it with `publish=false` validates and packages without publishing. Dispatching it with `publish=true` on `development` runs the publish job after the verification job succeeds; this is a live release action, not a disabled `&& false` gate. Building or validating a package is not approval to publish it. Do not select `true` unless publication is deliberately approved.
+The combined build workflow supports manual validation and a separately gated NuGet publishing action. Dispatching it with `publish=false` validates and packages without publishing. A publish dispatch with `publish=true` is still insufficient by itself: the job also requires the repository Actions variable `NUGET_PUBLISH_AUTHORIZED=true`, the `development` branch, and a successful verification job. The owner must explicitly authorize the release before setting that variable. Keep it unset or false during ordinary development; reset it after the authorized release. Building or validating a package is never approval to publish.
