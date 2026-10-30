@@ -105,7 +105,7 @@ In plain language: create an entity profile, add one small claim, declare the au
 
 ## 🟪 05 Documentation and theory
 
-Start with the [documentation index](docs/DOCUMENTATION_INDEX.md) for a guided path through the package. Contributors and coding agents should read [AGENTS.md](AGENTS.md) and [ProfilesLLM.md](ProfilesLLM.md); the [development pause point](docs/PAUSE_POINT.md) records known gaps and next work.
+Start with the [documentation index](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/DOCUMENTATION_INDEX.md) for a guided path through the package. Contributors and coding agents should read [AGENTS.md](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/AGENTS.md) and [ProfilesLLM.md](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/ProfilesLLM.md); the [development pause point](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/PAUSE_POINT.md) records known gaps and next work.
 
 - [Gallery](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/Gallery.md) — source-grounded tour, visual explanation, verification guidance, and the current status of living-documentation tooling.
 - [Consuming Profiles](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/CONSUMING.md) — installation, common tasks, and examples for integrating the package into an application.
