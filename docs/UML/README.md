@@ -21,9 +21,9 @@ A single aggregate diagram cannot answer every question. Type pages explain indi
 |---|---|---|
 | Aggregate domain UML | Exists | [ProfileUML.md](ProfileUML.md); hand-authored overview |
 | Architecture/component view | Exists | [Architecture guide](../ARCHITECTURE.md) and source-informed SVG |
-| Per-type pages | Planned | No complete per-type companion set yet |
-| Per-type target-centered neighborhoods | Planned | Not generated |
-| Per-type use cases | Planned | Human-authored work remains |
+| Per-type pages | Partial | [Profile type page](../Types/Profile.md) exists; remaining declared types are not yet covered |
+| Per-type target-centered neighborhoods | Partial | [Profile neighborhood](ProfileTypeUML.md) is hand-authored/source-checked; remaining types are not yet covered |
+| Per-type use cases | Partial | Profile use cases are documented in [ProfileTypeUML.md](ProfileTypeUML.md); remaining types are not yet covered |
 | Sequence diagrams | Planned | No complete workflow set |
 | Activity/control-flow diagrams | Planned | No systematic branch/loop/exception inventory |
 | State/lifecycle diagrams | Not applicable / limited | Current library has no central runtime state machine; revisit if lifecycle contracts emerge |
