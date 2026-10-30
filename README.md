@@ -2,13 +2,12 @@
 
 # ✳️ 00 The Singularity Workshop — Profiles
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/TrentBest/TheSingularityWorkshop.Profiles/build.yml?branch=development&style=flat-square&logo=github)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/actions/workflows/build.yml)
 [![NuGet version](https://img.shields.io/nuget/v/TheSingularityWorkshop.Profiles?style=flat-square&logo=nuget&logoColor=white)](https://www.nuget.org/packages/TheSingularityWorkshop.Profiles)
 [![NuGet downloads](https://img.shields.io/nuget/dt/TheSingularityWorkshop.Profiles?logo=nuget&style=flat-square)](https://www.nuget.org/packages/TheSingularityWorkshop.Profiles)
-
-[![Build Status](https://img.shields.io/github/actions/workflow/status/TrentBest/TheSingularityWorkshop.Profiles/build.yml?branch=development&style=flat-square&logo=github)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/actions/workflows/build.yml)
-[![Last commit](https://img.shields.io/github/last-commit/TrentBest/TheSingularityWorkshop.Profiles/development)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/commits/development)
 [![Code Coverage](https://codecov.io/gh/TrentBest/TheSingularityWorkshop.Profiles/graph/badge.svg)](https://codecov.io/gh/TrentBest/TheSingularityWorkshop.Profiles)
+[![Last commit](https://img.shields.io/github/last-commit/TrentBest/TheSingularityWorkshop.Profiles/development)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/commits/development)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![Source-informed Profiles diagram: Profile.RepresentTo filters claims by disclosure rule, applies display-name and avatar rules, and returns an observer-specific projection. Provenance and GUI.SVG status are identified inside the image.](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Profiles/development/docs/images/profiles-architecture.svg)
 
@@ -105,6 +104,8 @@ In plain language: create an entity profile, add one small claim, declare the au
 **Expected behavior:** the returned representation is the observer-facing projection governed by the profile's disclosure and exclusion rules. Do not pass the complete Profile to an untrusted renderer or remote consumer when it only needs the representation.
 
 ## 🟪 05 Documentation and theory
+
+Start with the [documentation index](docs/DOCUMENTATION_INDEX.md) for a guided path through the package. Contributors and coding agents should read [AGENTS.md](AGENTS.md) and [ProfilesLLM.md](ProfilesLLM.md); the [development pause point](docs/PAUSE_POINT.md) records known gaps and next work.
 
 - [Gallery](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/Gallery.md) — source-grounded tour, visual explanation, verification guidance, and the current status of living-documentation tooling.
 - [Consuming Profiles](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/blob/development/docs/CONSUMING.md) — installation, common tasks, and examples for integrating the package into an application.
