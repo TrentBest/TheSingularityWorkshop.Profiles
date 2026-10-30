@@ -193,7 +193,7 @@ jobs:
   publish_nuget:
     needs: verify
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish == true && github.ref == 'refs/heads/development' }}
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish == true && vars.NUGET_PUBLISH_AUTHORIZED == 'true' && github.ref == 'refs/heads/development' }}
     permissions:
       contents: read
       id-token: write
