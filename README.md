@@ -15,6 +15,8 @@
 [![Last commit](https://img.shields.io/github/last-commit/TrentBest/Profiles/development)](https://github.com/TrentBest/Profiles/commits/development)
 [![Code Coverage](https://codecov.io/gh/TrentBest/Profiles/graph/badge.svg)](https://codecov.io/gh/TrentBest/Profiles)
 
+[![Sith Policy](assets/sith-policy.svg)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/actions/workflows/sith-policy.yml)
+
 ![Profiles architecture: a Profile's owned information is transformed by disclosure policy into an observer-specific representation.](https://raw.githubusercontent.com/TrentBest/Profiles/development/docs/images/profiles-architecture.svg)
 
 *The same entity can be represented differently to different observers—without confusing identity with what each observer is allowed to see.*
