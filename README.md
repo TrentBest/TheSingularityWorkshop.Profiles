@@ -11,6 +11,7 @@
 
 ![Source-informed Profiles diagram: Profile.RepresentTo filters claims by disclosure rule, applies display-name and avatar rules, and returns an observer-specific projection. Provenance and GUI.SVG status are identified inside the image.](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Profiles/development/docs/images/profiles-architecture.svg)
 
+[![Sith Policy](assets/sith-policy.svg)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/actions/workflows/sith-policy.yml)
 *The same entity can be represented differently to different observers—without confusing identity with what each observer is allowed to see.*
 
 ## 🟦 01 The problem—and our response
