@@ -39,19 +39,19 @@ A single aggregate diagram cannot answer every question. Type pages explain indi
 | [`Assumptions.cs`](../../Assumptions.cs) | `AssumptionDefinition`, `AssumptionResultKind`, `AssumptionResult`, `IProfileAssumptionResolver`, `ProfileAssumptionResolver` |
 | [`Disclosure.cs`](../../Disclosure.cs) | `DisclosureScope`, `DisclosureRule` |
 | [`ExternalIdentityBinding.cs`](../../ExternalIdentityBinding.cs) | `ExternalIdentityReference`, `ProfileExternalIdentityBinding` |
-| `Profile.cs` | `Profile` |
-| `ProfileAccessLog.cs` | `ProfileAccessRecord`, `IProfileAccessRecorder` |
-| `ProfileAttributeDefinition.cs` | `ProfileAttributeDefinition` |
-| `ProfileClaim.cs` | `ProfileClaim` |
-| `ProfileDataLicensePolicy.cs` | `ProfileDataLicensePolicy` |
-| `ProfileEntityKind.cs` | `ProfileEntityKind` |
-| `ProfileGroup.cs` | `ProfileGroup` |
-| `ProfileId.cs` | `ProfileId` |
-| `ProfileIdentityLink.cs` | `ProfileIdentityLink`, `ProfileIdentityLinkKind` |
-| `ProfileIdentityLinkStore.cs` | `ProfileIdentityLinkStore` |
-| `ProfilePublicDataReport.cs` | `ProfilePublicDataReport`, `ProfilePublicDataReporter` |
-| `ProfileRelationship.cs` | `ProfileRelationship` |
-| `ProfileRepresentation.cs` | `ProfileRepresentation` |
+| [`Profile.cs`](../../Profile.cs) | `Profile` |
+| [`ProfileAccessLog.cs`](../../ProfileAccessLog.cs) | `ProfileAccessRecord`, `IProfileAccessRecorder` |
+| [`ProfileAttributeDefinition.cs`](../../ProfileAttributeDefinition.cs) | `ProfileAttributeDefinition` |
+| [`ProfileClaim.cs`](../../ProfileClaim.cs) | `ProfileClaim` |
+| [`ProfileDataLicensePolicy.cs`](../../ProfileDataLicensePolicy.cs) | `ProfileDataLicensePolicy` |
+| [`ProfileEntityKind.cs`](../../ProfileEntityKind.cs) | `ProfileEntityKind` |
+| [`ProfileGroup.cs`](../../ProfileGroup.cs) | `ProfileGroup` |
+| [`ProfileId.cs`](../../ProfileId.cs) | `ProfileId` |
+| [`ProfileIdentityLink.cs`](../../ProfileIdentityLink.cs) | `ProfileIdentityLink`, `ProfileIdentityLinkKind` |
+| [`ProfileIdentityLinkStore.cs`](../../ProfileIdentityLinkStore.cs) | `ProfileIdentityLinkStore` |
+| [`ProfilePublicDataReport.cs`](../../ProfilePublicDataReport.cs) | `ProfilePublicDataReport`, `ProfilePublicDataReporter` |
+| [`ProfileRelationship.cs`](../../ProfileRelationship.cs) | `ProfileRelationship` |
+| [`ProfileRepresentation.cs`](../../ProfileRepresentation.cs) | `ProfileRepresentation` |
 
 ### UML page conventions
 
