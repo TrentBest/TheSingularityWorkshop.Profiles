@@ -5,83 +5,47 @@
 
 ## 01 — What
 
-`ProfileClaim` is a sealed reference type representing one typed micro-data value held by a profile. It retains its `ProfileAttributeDefinition`, the supplied value, and optional verification time and provenance text.
+`ProfileClaim` is a sealed reference type holding one value together with its `ProfileAttributeDefinition`, optional verification timestamp, and optional provenance string.
 
 Source: [ProfileClaim.cs](../../ProfileClaim.cs).
 
 ## 02 — Why
 
-Profiles needs to distinguish the existence of a value from claims about how that value was obtained or verified. The claim carries those pieces of metadata together while leaving verification authority, persistence, disclosure, and trust decisions to the consuming system.
+The claim packages a value with the contract needed to interpret it and optional context about when and by whom it was verified. A claim is data with metadata; it is not, by itself, an assertion that the value is accurate or currently trusted.
 
 ## 03 — How
 
-### Declaration and public members
+The constructor requires a non-null definition and non-null value. It rejects values for which `definition.ValueType.IsInstanceOfType(value)` is false. It then retains `Definition`, `Value`, `VerifiedAt`, and `Provenance`. `IsVerified` is true exactly when `VerifiedAt` has a value.
 
-- **Kind:** `public sealed class`.
-- **Constructor:** `ProfileClaim(ProfileAttributeDefinition definition, object value, DateTimeOffset? verifiedAt = null, string? provenance = null)`.
-- **Properties:** `Definition`, `Value`, nullable `VerifiedAt`, nullable `Provenance`.
-- **Derived property:** `IsVerified` is true exactly when `VerifiedAt` has a value.
+### Trust and ownership boundaries
 
-Construction rejects a null definition, null value, or value that is not assignable to the definition's `ValueType`. The value is retained by reference; it is not deep-cloned.
-
-### Relationships and mutability
-
-- `Profile` stores claims by `Definition.Key`; setting another claim with the same key replaces the existing entry.
-- `ProfileAttributeDefinition` provides the key and expected CLR type.
-- `DisclosureRule` controls whether a claim is included in a representation and may substitute a different representation value.
-- The claim's properties are get-only, but `Value` is an arbitrary object. Mutable payloads can therefore change after construction. Prefer immutable value objects or treat payloads as immutable while the claim is in use.
-
-### Example
-
-```csharp
-var role = ProfileAttributeDefinition.Create("role", typeof(string));
-var claim = new ProfileClaim(
-    role,
-    "architect",
-    DateTimeOffset.UtcNow,
-    provenance: "trusted-provider");
-
-bool hasVerificationTimestamp = claim.IsVerified;
-```
-
-The constructor type check and verification/provenance retention are covered by [ProfileTests.cs](../../tests/TheSingularityWorkshop.Profiles.Tests/ProfileTests.cs). The end-to-end claim/disclosure example is exercised by [ConsumerGuideExamplesTests.cs](../../tests/TheSingularityWorkshop.Profiles.Tests/ConsumerGuideExamplesTests.cs).
-
-### Limits and security boundary
-
-- `IsVerified` means only that a timestamp was supplied; it does not validate the verifier, source, evidence, freshness, or legal authority.
-- `Provenance` is descriptive metadata, not a cryptographic signature or trust chain.
-- Type compatibility does not prove that a value is accurate.
-- A claim's existence does not make it public. Disclosure requires a separate rule and observer-specific representation.
-- The value is not deep-cloned. A read-only dictionary containing a claim value does not make that arbitrary value immutable.
+- `IsVerified` means a timestamp was supplied; it does not validate the verifier, provenance, signature, freshness, or truth of the value.
+- `Provenance` is descriptive text, not a cryptographic attestation or trusted authority object.
+- The value is retained by reference and is not deep-cloned. Prefer immutable values or treat mutable values as immutable while the claim is in use.
+- The type check enforces CLR assignability only; domain-specific validation belongs to the application or a higher-level contract.
+- Consumers must not expose raw claim values without applying the relevant disclosure policy.
 
 ## 04 — See it in a minute
 
-```mermaid
-classDiagram
-    class ProfileClaim {
-      +ProfileAttributeDefinition Definition
-      +object Value
-      +DateTimeOffset? VerifiedAt
-      +string Provenance
-      +bool IsVerified
-    }
-    class ProfileAttributeDefinition
-    class Profile
-    class DisclosureRule
-    class ProfileRepresentation
-    Profile o-- ProfileClaim : stores by attribute key
-    ProfileClaim --> ProfileAttributeDefinition : typed by
-    Profile ..> DisclosureRule : applies audience policy
-    Profile ..> ProfileRepresentation : projects allowed values
+```csharp
+var definition = ProfileAttributeDefinition.Create("role", typeof(string));
+var claim = new ProfileClaim(
+    definition,
+    "architect",
+    verifiedAt: DateTimeOffset.UtcNow,
+    provenance: "internal-review");
+
+if (claim.IsVerified)
+    Console.WriteLine(claim.Value);
 ```
 
 ## 05 — Choose your next step
 
-- [ProfileAttributeDefinition type reference](ProfileAttributeDefinition.md)
-- [ProfileClaim target-centered UML and use cases](../UML/ProfileClaimUML.md)
-- [Disclosure API](../API.md#disclosure)
+- [ProfileAttributeDefinition](ProfileAttributeDefinition.md)
+- [DisclosureRule](DisclosureRule.md)
 - [Profile aggregate](Profile.md)
 - [Implementation](../../ProfileClaim.cs)
+- [Claim tests](../../tests/TheSingularityWorkshop.Profiles.Tests/ProfileTests.cs)
 
 <!-- THE SINGULARITY WORKSHOP FOOTER -->
 <p align="center"><img src="https://raw.githubusercontent.com/TrentBest/FSM_API/master/Documentation/Branding/TheSingularityWorkshop.png" alt="The Singularity Workshop" width="200" /></p>
