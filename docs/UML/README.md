@@ -13,7 +13,7 @@ A single aggregate diagram cannot answer every question. Type pages explain indi
 
 ## 03 — How: current coverage
 
-**Inventory basis:** manually inspected all 16 root-level C# implementation files in the `development` tree on 2026-11-06 and checked their top-level public declarations. The resulting 24-type list below matches those declarations. This is a source-reviewed manual inventory, not generated or CI-enforced; it does not claim to enumerate every nested/private type or external consumer.
+**Inventory basis:** manually inspected all 16 root-level C# implementation files in the `development` tree on 2026-11-06 and checked their top-level public declarations. The 24-type list below matches the declarations in those files. This is a source-reviewed manual inventory, not generated or CI-enforced; it does not enumerate nested/private types or external consumers. Source links point to the current `development` branch.
 
 ### Existing artifact
 
@@ -36,9 +36,9 @@ A single aggregate diagram cannot answer every question. Type pages explain indi
 
 | Source file | Declared types |
 |---|---|
-| `Assumptions.cs` | `AssumptionDefinition`, `AssumptionResultKind`, `AssumptionResult`, `IProfileAssumptionResolver`, `ProfileAssumptionResolver` |
-| `Disclosure.cs` | `DisclosureScope`, `DisclosureRule` |
-| `ExternalIdentityBinding.cs` | `ExternalIdentityReference`, `ProfileExternalIdentityBinding` |
+| [`Assumptions.cs`](../../Assumptions.cs) | `AssumptionDefinition`, `AssumptionResultKind`, `AssumptionResult`, `IProfileAssumptionResolver`, `ProfileAssumptionResolver` |
+| [`Disclosure.cs`](../../Disclosure.cs) | `DisclosureScope`, `DisclosureRule` |
+| [`ExternalIdentityBinding.cs`](../../ExternalIdentityBinding.cs) | `ExternalIdentityReference`, `ProfileExternalIdentityBinding` |
 | `Profile.cs` | `Profile` |
 | `ProfileAccessLog.cs` | `ProfileAccessRecord`, `IProfileAccessRecorder` |
 | `ProfileAttributeDefinition.cs` | `ProfileAttributeDefinition` |
@@ -60,6 +60,20 @@ Each future per-type page should identify its exact target, purpose, responsibil
 Each companion `<TypeName>UML.md` should show verified consumers above, the focal type centered, dependencies below, relevant packages to the right, and a use-case section. Label scan scope and provenance. Do not invent consumers or infer use cases from AST/reflection alone.
 
 Sequence diagrams should identify caller/callee source methods, inputs/outputs, important alternatives and failures, and complexity where meaningful. Distinguish static analysis from measured performance.
+
+### Source-level contract observations
+
+The public surface is intentionally concentrated in the root-level files. Several implementation details matter to documentation accuracy:
+
+- `Profile`, `ProfileGroup`, and `ProfileDataLicensePolicy` are mutable domain objects; their collection views use read-only wrappers or defensive snapshots where documented, but this is not a deep-immutability guarantee for arbitrary claim values.
+- `Profile.RepresentTo` creates an observer-specific projection. Exclusion returns an anonymous representation with no claims; ordinary disclosure rules govern claims and the special `display-name` key.
+- `DisclosureRule` separates observer IDs from group IDs and validates scope-specific inputs. Group membership held by the profile itself participates in its projection logic.
+- `ProfileAssumptionResolver` maps `KeyNotFoundException` and `InvalidOperationException` to `Unknown`; other exception types are not swallowed. The predicate receives the original `Profile`.
+- `ProfileIdentityLinkStore` is an in-memory domain implementation, not a persistence adapter. Links are intended for trusted identity infrastructure and are not included in ordinary representations.
+- `ExternalIdentityReference` and `ProfileExternalIdentityBinding` carry a mapping contract, not credentials or proof of authentication.
+- `ProfilePublicDataReporter` reports configured public exposure metadata; it does not resolve every observer's eventual representation.
+
+These observations are static source review, not a security audit or runtime verification.
 
 ## 04 — See it in a minute
 
