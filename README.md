@@ -1,4 +1,4 @@
-![The Singularity Workshop animated moniker](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Renderer/development/docs/assets/moniker.svg)
+![The Singularity Workshop animated moniker](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Visualize/development/docs/assets/moniker.svg)
 
 # ✳️ 00 The Singularity Workshop — Profiles
 
@@ -8,10 +8,10 @@
 [![Code Coverage](https://codecov.io/gh/TrentBest/TheSingularityWorkshop.Profiles/graph/badge.svg)](https://codecov.io/gh/TrentBest/TheSingularityWorkshop.Profiles)
 [![Last commit](https://img.shields.io/github/last-commit/TrentBest/TheSingularityWorkshop.Profiles/development)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/commits/development)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Sith Policy](assets/sith-policy.svg)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/actions/workflows/sith-policy.yml)
 
 ![Source-informed Profiles diagram: Profile.RepresentTo filters claims by disclosure rule, applies display-name and avatar rules, and returns an observer-specific projection. Provenance and GUI.SVG status are identified inside the image.](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Profiles/development/docs/images/profiles-architecture.svg)
 
-[![Sith Policy](assets/sith-policy.svg)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/actions/workflows/sith-policy.yml)
 *The same entity can be represented differently to different observers—without confusing identity with what each observer is allowed to see.*
 
 ## 🟦 01 The problem—and our response
@@ -153,8 +153,6 @@ Profiles is designed to remain independently useful. Workshop applications may u
 NuGet publication remains an explicit release action; documentation or CI changes do not authorize a release.
 
 ---
-
-![Trent Best](https://avatars.githubusercontent.com/u/16405167?v=4&size=200)
 
 [GitHub — Profiles](https://github.com/TrentBest/TheSingularityWorkshop.Profiles)
 
