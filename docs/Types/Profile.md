@@ -22,7 +22,7 @@ The aggregate is intentionally not a user account or a database abstraction.
 - **Kind:** `public sealed class`.
 - **Construction:** `Profile(ProfileEntityKind kind, string? displayName = null)`; validates the enum and creates a new `ProfileId`.
 - **Owned mutable state:** claim/rule/avatar/group dictionaries, relationship list, and exclusion set.
-- **Read views:** `Claims`, `Groups`, and `Relationships` expose read-only collection interfaces backed by the aggregate's collections; `ExcludedEntities` returns a new set snapshot.
+- **Read views:** `Claims`, `Groups`, and `Relationships` expose read-only wrappers over the aggregate's live collections; `ExcludedEntities` returns a new set snapshot. The wrappers prevent callers from changing collection structure through these properties, but do not make contained `ProfileClaim` or `ProfileGroup` objects deeply immutable.
 - **Mutation:** fluent methods update the aggregate and generally return `this`; `DefineGroup` returns the existing or newly created group.
 
 ### Key public members
@@ -33,7 +33,7 @@ The aggregate is intentionally not a user account or a database abstraction.
 | `DisplayName` | Optional mutable name; disclosure is separately controlled |
 | `Claims`, `Groups`, `Relationships` | Read-only collection views |
 | `ExcludedEntities` | Snapshot of excluded observer IDs |
-| `PublicAttributeKeys`, `IsDisplayNamePublic`, `HasPublicAvatar` | Exposure metadata |
+| `PublicAttributeKeys`, `IsDisplayNamePublic`, `HasPublicAvatar` | Exposure metadata; public attribute keys include only existing claims with a matching `Public` rule |
 | `SetClaim`, `SetDisclosureRule` | Add/replace claim and audience rule |
 | `DefineGroup`, `AddRelationship` | Add group and profile-owned relationship |
 | `Exclude`, `RemoveExclusion` | Add/remove observer exclusion |
@@ -47,12 +47,16 @@ The aggregate is intentionally not a user account or a database abstraction.
 1. An excluded observer receives the same ProfileId, null display name, avatar `anonymous`, and an empty claims dictionary.
 2. For a non-excluded observer, a claim is included only when it has a disclosure rule and that rule allows the observer/effective groups.
 3. The display name has its own special `display-name` rule.
-4. Avatar precedence is observer-specific, matching group, public/default, then `anonymous`.
+4. Avatar precedence is observer-specific, then a matching profile-defined group avatar, then the public/default avatar, then `anonymous`. When multiple matching profile groups have configured avatars, the first matching group encountered in the profile's group collection wins; do not treat group-avatar selection as a priority-ranking system.
 
 For the exact audience predicates see [DisclosureRule](../API.md) and [Disclosure.cs](../../Disclosure.cs).
 
-### Security and mutability boundaries
+### Ownership, mutation, and security boundaries
 
+- `Claims`, `Groups`, and `Relationships` are live read-only views: later mutations through the Profile API are reflected in them. `ExcludedEntities` is different: each access returns an independent snapshot.
+- `DefineGroup` returns the existing group when the name is already defined; it does not replace that group's membership. Group membership is managed by the returned `ProfileGroup`.
+- `AddRelationship` accepts only relationships whose `Subject` is this profile's `Id`; the relationship's other endpoint may refer to another profile.
+- `PublicAttributeKeys` reports existing claims whose matching rule has `DisclosureScope.Public`; a public rule without a corresponding claim is not listed. `IsDisplayNamePublic` checks the separate `display-name` rule.
 - Group IDs passed through `observerGroups` are trusted host context. Profiles does not authenticate or validate their provenance.
 - The original Profile remains readable to any code that already holds it. A representation does not revoke access to the source object.
 - The representation copies its claims dictionary structure, but arbitrary claim values are not deep-cloned. Prefer immutable claim payloads or treat them as immutable after publication.
@@ -81,7 +85,7 @@ This example is source-shaped and should be built against the current project be
 - [Privacy model](../PRIVACY.md)
 - [Consuming guide](../CONSUMING.md)
 - [Profile implementation](../../Profile.cs)
-- [Profile tests](../../tests/TheSingularityWorkshop.Profiles.Tests/ProfileTests.cs)
+- [Profile tests](../../tests/TheSingularityWorkshop.Profiles.Tests/ProfileTests.cs) — includes collection-view behavior, disclosure, group membership, exclusion, avatar precedence, and relationship ownership.
 
 <!-- THE SINGULARITY WORKSHOP FOOTER -->
 <p align="center"><img src="https://raw.githubusercontent.com/TrentBest/FSM_API/master/Documentation/Branding/TheSingularityWorkshop.png" alt="The Singularity Workshop avatar" width="200" /></p>
