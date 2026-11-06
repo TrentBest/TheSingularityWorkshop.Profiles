@@ -10,11 +10,12 @@ This directory documents individual public types. Source and XML API documentati
 | Type | Source | Documentation |
 |---|---|---|
 | `ProfileId` | [ProfileId.cs](../../ProfileId.cs) | [ProfileId](ProfileId.md) |
+| `ProfileEntityKind` | [ProfileEntityKind.cs](../../ProfileEntityKind.cs) | [ProfileEntityKind](ProfileEntityKind.md) |
 | `Profile` | [Profile.cs](../../Profile.cs) | [Profile](Profile.md) |
 | `ProfileAttributeDefinition` | [ProfileAttributeDefinition.cs](../../ProfileAttributeDefinition.cs) | [ProfileAttributeDefinition](ProfileAttributeDefinition.md) |
 | `ProfileClaim` | [ProfileClaim.cs](../../ProfileClaim.cs) | [ProfileClaim](ProfileClaim.md) |
 
-**Coverage status:** 4 of the 24 top-level public declarations currently have focused type pages. The other 20 types are inventoried with direct source links in the [UML and type-documentation index](../UML/README.md). The count is a manual inventory of the 16 root-level implementation files on `development`, not a generated or CI-enforced count.
+**Coverage status:** 5 of the 24 top-level public declarations currently have focused type pages. The other 19 types are inventoried with direct source links in the [UML and type-documentation index](../UML/README.md). The count is a manual inventory of the 16 root-level implementation files on `development`, not a generated or CI-enforced count.
 
 ## Recommended documentation batches
 
