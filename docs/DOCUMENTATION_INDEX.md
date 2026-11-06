@@ -9,6 +9,8 @@ Profiles is a provider-neutral domain library for entity profiles, typed claims,
 
 ## 02 — Why
 
+The [documentation audit](DOCUMENTATION_AUDIT.md) records the current documentation surface, concrete consistency defects, and the ordered work remaining on the development branch.
+
 The documentation separates consumer tasks, domain contracts, architecture, privacy boundaries, theory, API structure, and UML. Read the focused authority rather than relying on duplicated summaries.
 
 ## 03 — How: choose a path
