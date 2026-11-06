@@ -3,7 +3,7 @@
 
 # Profiles public type reference
 
-This directory documents individual public types. The source and XML API documentation remain authoritative for exact member contracts; these pages explain purpose, boundaries, relationships, and evidence.
+This directory documents individual public types. Source and XML API documentation remain authoritative for exact member contracts; these pages explain purpose, boundaries, relationships, ownership, limitations, and evidence.
 
 ## Current coverage
 
@@ -13,11 +13,21 @@ This directory documents individual public types. The source and XML API documen
 | `ProfileAttributeDefinition` | [ProfileAttributeDefinition.cs](../../ProfileAttributeDefinition.cs) | [ProfileAttributeDefinition](ProfileAttributeDefinition.md) |
 | `ProfileClaim` | [ProfileClaim.cs](../../ProfileClaim.cs) | [ProfileClaim](ProfileClaim.md) |
 
-The remaining public types are inventoried in the [UML and type-documentation index](../UML/README.md). This is a partial, manually maintained set—not a claim of complete API coverage.
+**Coverage status:** 3 of the 24 top-level public declarations currently have focused type pages. The other 21 types are inventoried with direct source links in the [UML and type-documentation index](../UML/README.md). The count is a manual inventory of the 16 root-level implementation files on `development`, not a generated or CI-enforced count.
+
+## Recommended documentation batches
+
+1. **Identity and entity:** `ProfileId`, `ProfileEntityKind`, `Profile`.
+2. **Claims and disclosure:** `ProfileAttributeDefinition`, `ProfileClaim`, `DisclosureScope`, `DisclosureRule`.
+3. **Representation and exposure:** `ProfileRepresentation`, `ProfilePublicDataReport`, `ProfilePublicDataReporter`.
+4. **Groups and relationships:** `ProfileGroup`, `ProfileRelationship`.
+5. **Assumptions:** `AssumptionDefinition`, `AssumptionResult`, `AssumptionResultKind`, `IProfileAssumptionResolver`, `ProfileAssumptionResolver`.
+6. **Identity links and external bindings:** `ProfileIdentityLink`, `ProfileIdentityLinkKind`, `ProfileIdentityLinkStore`, `ExternalIdentityReference`, `ProfileExternalIdentityBinding`.
+7. **Licensing and access transparency:** `ProfileDataLicensePolicy`, `ProfileAccessRecord`, `IProfileAccessRecorder`.
 
 ## Page standard
 
-Each page should state its declaration kind, purpose, responsibilities and non-goals, key public members, relationships, ownership/mutability, examples, relevant tests, limitations, and exact source links. Pair it with a target-centered UML page that distinguishes consumers from dependencies and includes human-authored use cases.
+Each page should state its declaration kind, purpose, responsibilities and non-goals, key public members, source-backed relationships, ownership/mutability, examples, relevant tests, limitations, and exact source links. Pair it with a target-centered UML page that distinguishes verified consumers from dependencies and includes human-authored use cases. Do not infer a runtime consumer graph from declaration relationships alone.
 
 <!-- THE SINGULARITY WORKSHOP FOOTER -->
-<p align="center"><img src="https://raw.githubusercontent.com/TrentBest/FSM_API/master/Documentation/Branding/TheSingularityWorkshop.png" alt="The Singularity Workshop avatar" width="200" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/TrentBest/FSM_API/master/Documentation/Branding/TheSingularityWorkshop.png" alt="The Singularity Workshop" width="200" /></p>
