@@ -10,8 +10,10 @@ This directory documents individual public types. The source and XML API documen
 | Type | Source | Documentation |
 |---|---|---|
 | `Profile` | [Profile.cs](../../Profile.cs) | [Profile](Profile.md) |
+| `ProfileAttributeDefinition` | [ProfileAttributeDefinition.cs](../../ProfileAttributeDefinition.cs) | [ProfileAttributeDefinition](ProfileAttributeDefinition.md) |
+| `ProfileClaim` | [ProfileClaim.cs](../../ProfileClaim.cs) | [ProfileClaim](ProfileClaim.md) |
 
-Other public types are inventoried in the [UML and type-documentation index](../UML/README.md) and will receive focused pages as they are reviewed. This is a partial, manually maintained set—not a claim of complete API coverage.
+The remaining public types are inventoried in the [UML and type-documentation index](../UML/README.md). This is a partial, manually maintained set—not a claim of complete API coverage.
 
 ## Page standard
 
