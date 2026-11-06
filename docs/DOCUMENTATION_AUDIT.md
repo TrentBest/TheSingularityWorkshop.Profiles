@@ -68,7 +68,7 @@ The current UML inventory names these declared types:
 | `ProfileRelationship.cs` | `ProfileRelationship` |
 | `ProfileRepresentation.cs` | `ProfileRepresentation` |
 
-This list is reproduced from the existing manually maintained UML inventory. It has not yet been independently regenerated from the current source tree in this audit. Before expanding it, verify declaration kinds, accessibility, members, consumers, and test coverage directly from source.
+A direct inspection of all 16 root-level C# implementation files on development confirmed these 24 top-level public declarations. This is a manual source scan, not a Roslyn-generated inventory or CI drift check. The scan does not enumerate nested/private declarations or all external consumers. The focused ProfileAttributeDefinition and ProfileClaim pages now link their contracts to source and tests; continue checking each remaining type neighborhood directly rather than treating this inventory as a generated call graph.
 
 ### Existing coverage versus missing coverage
 
