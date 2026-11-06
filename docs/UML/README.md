@@ -13,7 +13,7 @@ A single aggregate diagram cannot answer every question. Type pages explain indi
 
 ## 03 — How: current coverage
 
-**Inventory basis:** source file/type declarations visible in the `development` tree at the time this inventory was authored. This is a manual inventory, not generated or CI-enforced. Re-scan source before treating it as exhaustive.
+**Inventory basis:** manually inspected all 16 root-level C# implementation files in the `development` tree on 2026-11-06 and checked their top-level public declarations. The resulting 24-type list below matches those declarations. This is a source-reviewed manual inventory, not generated or CI-enforced; it does not claim to enumerate every nested/private type or external consumer.
 
 ### Existing artifact
 
@@ -21,9 +21,9 @@ A single aggregate diagram cannot answer every question. Type pages explain indi
 |---|---|---|
 | Aggregate domain UML | Exists | [ProfileUML.md](ProfileUML.md); hand-authored overview |
 | Architecture/component view | Exists | [Architecture guide](../ARCHITECTURE.md) and source-informed SVG |
-| Per-type pages | Partial | [Profile type page](../Types/Profile.md) exists; remaining declared types are not yet covered |
-| Per-type target-centered neighborhoods | Partial | [Profile neighborhood](ProfileTypeUML.md) is hand-authored/source-checked; remaining types are not yet covered |
-| Per-type use cases | Partial | Profile use cases are documented in [ProfileTypeUML.md](ProfileTypeUML.md); remaining types are not yet covered |
+| Per-type pages | Partial | [Profile](../Types/Profile.md), [ProfileAttributeDefinition](../Types/ProfileAttributeDefinition.md), and [ProfileClaim](../Types/ProfileClaim.md) exist; remaining declared types are not yet covered |
+| Per-type target-centered neighborhoods | Partial | [Profile](ProfileTypeUML.md) and [ProfileClaim](ProfileClaimUML.md) are hand-authored/source-checked; remaining types are not yet covered |
+| Per-type use cases | Partial | Profile use cases are documented in [ProfileTypeUML.md](ProfileTypeUML.md); claim workflows are documented in [ProfileClaimUML.md](ProfileClaimUML.md); remaining types are not yet covered |
 | Sequence diagrams | Planned | No complete workflow set |
 | Activity/control-flow diagrams | Planned | No systematic branch/loop/exception inventory |
 | State/lifecycle diagrams | Not applicable / limited | Current library has no central runtime state machine; revisit if lifecycle contracts emerge |
