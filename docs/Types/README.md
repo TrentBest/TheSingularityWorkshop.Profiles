@@ -13,14 +13,14 @@ This directory documents individual public types. Source and XML API documentati
 | `ProfileEntityKind` | [ProfileEntityKind.cs](../../ProfileEntityKind.cs) | [ProfileEntityKind](ProfileEntityKind.md) |
 | `Profile` | [Profile.cs](../../Profile.cs) | [Profile](Profile.md) |
 | `ProfileAttributeDefinition` | [ProfileAttributeDefinition.cs](../../ProfileAttributeDefinition.cs) | [ProfileAttributeDefinition](ProfileAttributeDefinition.md) |
-| `ProfileClaim` | [ProfileClaim.cs](../../ProfileClaim.cs) | [ProfileClaim](ProfileClaim.md) |
+| `ProfileClaim` | [ProfileClaim.cs](../../ProfileClaim.cs) | [ProfileClaim](ProfileClaim.md) |\n| `DisclosureScope` | [Disclosure.cs](../../Disclosure.cs) | [DisclosureScope](DisclosureScope.md) |\n| `DisclosureRule` | [Disclosure.cs](../../Disclosure.cs) | [DisclosureRule](DisclosureRule.md) |
 
-**Coverage status:** 5 of the 24 top-level public declarations currently have focused type pages. The other 19 types are inventoried with direct source links in the [UML and type-documentation index](../UML/README.md). The count is a manual inventory of the 16 root-level implementation files on `development`, not a generated or CI-enforced count.
+**Coverage status:** 7 of the 24 top-level public declarations currently have focused type pages. The other 19 types are inventoried with direct source links in the [UML and type-documentation index](../UML/README.md). The count is a manual inventory of the 16 root-level implementation files on `development`, not a generated or CI-enforced count.
 
 ## Recommended documentation batches
 
-1. **Identity and entity:** `ProfileId`, `ProfileEntityKind`, `Profile`.
-2. **Claims and disclosure:** `ProfileAttributeDefinition`, `ProfileClaim`, `DisclosureScope`, `DisclosureRule`.
+1. **Identity and entity:** `ProfileId`, `ProfileEntityKind`, `Profile` — documented.
+2. **Claims and disclosure:** `ProfileAttributeDefinition`, `ProfileClaim`, `DisclosureScope`, `DisclosureRule` — documented.
 3. **Representation and exposure:** `ProfileRepresentation`, `ProfilePublicDataReport`, `ProfilePublicDataReporter`.
 4. **Groups and relationships:** `ProfileGroup`, `ProfileRelationship`.
 5. **Assumptions:** `AssumptionDefinition`, `AssumptionResult`, `AssumptionResultKind`, `IProfileAssumptionResolver`, `ProfileAssumptionResolver`.
