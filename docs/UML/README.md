@@ -13,7 +13,7 @@ A single aggregate diagram cannot answer every question. Type pages explain indi
 
 ## 03 — How: current coverage
 
-**Inventory basis:** manually inspected all 16 root-level C# implementation files in the `development` tree on 2026-11-06 and checked their top-level public declarations. The 25-type list below matches the declarations in those files. This is a source-reviewed manual inventory, not generated or CI-enforced; it does not enumerate nested/private types or external consumers. Source links point to the current `development` branch.
+**Inventory basis:** manually inspected all 16 root-level C# implementation files in the `development` tree on 2026-11-07 and checked their top-level public declarations. The 25-type list below matches the declarations in those files. This is a source-reviewed manual inventory, not generated or CI-enforced; it does not enumerate nested/private types or external consumers. Source links point to the current `development` branch.
 
 ### Existing artifact
 
@@ -21,7 +21,7 @@ A single aggregate diagram cannot answer every question. Type pages explain indi
 |---|---|---|
 | Aggregate domain UML | Exists | [ProfileUML.md](ProfileUML.md); hand-authored overview |
 | Architecture/component view | Exists | [Architecture guide](../ARCHITECTURE.md) and source-informed SVG |
-| Per-type pages | Partial | [Profile](../Types/Profile.md), [ProfileAttributeDefinition](../Types/ProfileAttributeDefinition.md), and [ProfileClaim](../Types/ProfileClaim.md) exist; remaining declared types are not yet covered |
+| Per-type pages | Complete (25/25) | [Type reference index](../Types/README.md) links a focused page for every inventoried top-level public declaration; this does not imply complete UML or test traceability |
 | Per-type target-centered neighborhoods | Partial | [Profile](ProfileTypeUML.md) and [ProfileClaim](ProfileClaimUML.md) are hand-authored/source-checked; remaining types are not yet covered |
 | Per-type use cases | Partial | Profile use cases are documented in [ProfileTypeUML.md](ProfileTypeUML.md); claim workflows are documented in [ProfileClaimUML.md](ProfileClaimUML.md); remaining types are not yet covered |
 | Sequence diagrams | Planned | No complete workflow set |
@@ -87,4 +87,4 @@ The existing [ProfileUML.md](ProfileUML.md) is the current aggregate map. It is 
 - [Contributor guide](../../AGENTS.md) for change and verification rules.
 
 <!-- THE SINGULARITY WORKSHOP FOOTER -->
-<p align="center"><img src="https://raw.githubusercontent.com/TrentBest/FSM_API/master/Documentation/Branding/TheSingularityWorkshop.png" alt="The Singularity Workshop avatar" width="200" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/TrentBest/FSM_API/master/Documentation/Branding/TheSingularityWorkshop.png" alt="The Singularity Workshop" width="200" /></p>
