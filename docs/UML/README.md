@@ -29,7 +29,7 @@ A single aggregate diagram cannot answer every question. Type pages explain indi
 | State/lifecycle diagrams | Not applicable / limited | Current library has no central runtime state machine; revisit if lifecycle contracts emerge |
 | Deployment/runtime topology | Not applicable | This is a domain library; deployment belongs to consuming hosts |
 | Data model/data flow | Partial | Aggregate architecture and representation flow exist; no full per-type ownership/mutability catalog |
-| Requirement/test traceability | Partial | Test files exist, but no exhaustive contract-to-test matrix |
+| Requirement/test traceability | Initial source-backed matrix | [TEST_TRACEABILITY.md](TEST_TRACEABILITY.md) maps inspected tests to contracts and names explicit gaps; this is source inventory, not test execution |
 | MicroBundle/manifest views | Not applicable | This repository does not define MicroBundles |
 
 ### Declared type inventory
@@ -81,7 +81,7 @@ The existing [ProfileUML.md](ProfileUML.md) is the current aggregate map. It is 
 
 ## 05 — Choose your next step
 
-- [API map](../API.md) for the public type overview.
+- [Test traceability](TEST_TRACEABILITY.md) for contract-to-test mapping and known gaps.\n- [API map](../API.md) for the public type overview.
 - [Architecture](../ARCHITECTURE.md) for responsibility and dependency boundaries.
 - [Privacy model](../PRIVACY.md) for disclosure semantics and limitations.
 - [Contributor guide](../../AGENTS.md) for change and verification rules.
