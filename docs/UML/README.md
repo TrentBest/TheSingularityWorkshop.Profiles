@@ -24,7 +24,7 @@ A single aggregate diagram cannot answer every question. Type pages explain indi
 | Per-type pages | Complete (25/25) | [Type reference index](../Types/README.md) links a focused page for every inventoried top-level public declaration; this does not imply complete UML or test traceability |
 | Per-type target-centered neighborhoods | Partial | [Profile](ProfileTypeUML.md) and [ProfileClaim](ProfileClaimUML.md) are hand-authored/source-checked; remaining types are not yet covered |
 | Per-type use cases | Partial | Profile use cases are documented in [ProfileTypeUML.md](ProfileTypeUML.md); claim workflows are documented in [ProfileClaimUML.md](ProfileClaimUML.md); remaining types are not yet covered |
-| Sequence diagrams | Planned | No complete workflow set |
+| Sequence diagrams | Initial source-backed coverage | [InteractionSequences.md](InteractionSequences.md) documents representation and assumption-resolution flows; this is not yet a complete workflow set |
 | Activity/control-flow diagrams | Planned | No systematic branch/loop/exception inventory |
 | State/lifecycle diagrams | Not applicable / limited | Current library has no central runtime state machine; revisit if lifecycle contracts emerge |
 | Deployment/runtime topology | Not applicable | This is a domain library; deployment belongs to consuming hosts |
