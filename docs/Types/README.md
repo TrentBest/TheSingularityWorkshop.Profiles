@@ -21,13 +21,18 @@ This directory documents individual public types. Source and XML API documentati
 | `ProfileRelationship` | [ProfileRelationship.cs](../../ProfileRelationship.cs) | [ProfileRelationship](ProfileRelationship.md) |
 | `ProfilePublicDataReport` | [ProfilePublicDataReport.cs](../../ProfilePublicDataReport.cs) | [ProfilePublicDataReport](ProfilePublicDataReport.md) |
 | `ProfilePublicDataReporter` | [ProfilePublicDataReport.cs](../../ProfilePublicDataReport.cs) | [ProfilePublicDataReporter](ProfilePublicDataReporter.md) |
+| `ProfileIdentityLink` | [ProfileIdentityLink.cs](../../ProfileIdentityLink.cs) | [ProfileIdentityLink](ProfileIdentityLink.md) |
+| `ProfileIdentityLinkKind` | [ProfileIdentityLink.cs](../../ProfileIdentityLink.cs) | [ProfileIdentityLinkKind](ProfileIdentityLinkKind.md) |
+| `ProfileIdentityLinkStore` | [ProfileIdentityLinkStore.cs](../../ProfileIdentityLinkStore.cs) | [ProfileIdentityLinkStore](ProfileIdentityLinkStore.md) |
+| `ExternalIdentityReference` | [ExternalIdentityBinding.cs](../../ExternalIdentityBinding.cs) | [ExternalIdentityReference](ExternalIdentityReference.md) |
+| `ProfileExternalIdentityBinding` | [ExternalIdentityBinding.cs](../../ExternalIdentityBinding.cs) | [ProfileExternalIdentityBinding](ProfileExternalIdentityBinding.md) |
 | `AssumptionDefinition` | [Assumptions.cs](../../Assumptions.cs) | [AssumptionDefinition](AssumptionDefinition.md) |
 | `AssumptionResultKind` | [Assumptions.cs](../../Assumptions.cs) | [AssumptionResultKind](AssumptionResultKind.md) |
 | `AssumptionResult` | [Assumptions.cs](../../Assumptions.cs) | [AssumptionResult](AssumptionResult.md) |
 | `IProfileAssumptionResolver` | [Assumptions.cs](../../Assumptions.cs) | [IProfileAssumptionResolver](IProfileAssumptionResolver.md) |
 | `ProfileAssumptionResolver` | [Assumptions.cs](../../Assumptions.cs) | [ProfileAssumptionResolver](ProfileAssumptionResolver.md) |
 
-**Coverage status:** 17 of the 24 top-level public declarations have focused type pages. The other 7 types are inventoried with direct source links in the [UML and type-documentation index](../UML/README.md). The count is a manual inventory of the 16 root-level implementation files on `development`, not a generated or CI-enforced count.
+**Coverage status:** 22 of the 25 top-level public declarations have focused type pages. The other 3 types are `ProfileDataLicensePolicy`, `ProfileAccessRecord`, and `IProfileAccessRecorder`; all are inventoried with direct source links in the [UML and type-documentation index](../UML/README.md). The count is a manual inventory of the 16 root-level implementation files on `development`, not a generated or CI-enforced count.
 
 ## Recommended documentation batches
 
@@ -36,8 +41,8 @@ This directory documents individual public types. Source and XML API documentati
 3. **Representation and exposure:** `ProfileRepresentation`, `ProfilePublicDataReport`, `ProfilePublicDataReporter` — documented.
 4. **Groups and relationships:** `ProfileGroup`, `ProfileRelationship` — documented.
 5. **Assumptions:** `AssumptionDefinition`, `AssumptionResult`, `AssumptionResultKind`, `IProfileAssumptionResolver`, `ProfileAssumptionResolver` — documented.
-6. **Identity links and external bindings:** `ProfileIdentityLink`, `ProfileIdentityLinkKind`, `ProfileIdentityLinkStore`, `ExternalIdentityReference`, `ProfileExternalIdentityBinding`.
-7. **Licensing and access transparency:** `ProfileDataLicensePolicy`, `ProfileAccessRecord`, `IProfileAccessRecorder`.
+6. **Identity links and external bindings:** `ProfileIdentityLink`, `ProfileIdentityLinkKind`, `ProfileIdentityLinkStore`, `ExternalIdentityReference`, `ProfileExternalIdentityBinding` — documented.
+7. **Licensing and access transparency:** `ProfileDataLicensePolicy`, `ProfileAccessRecord`, `IProfileAccessRecorder` — remaining.
 
 ## Page standard
 
