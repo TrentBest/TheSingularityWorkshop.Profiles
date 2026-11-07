@@ -13,7 +13,7 @@ A single aggregate diagram cannot answer every question. Type pages explain indi
 
 ## 03 — How: current coverage
 
-**Inventory basis:** manually inspected all 16 root-level C# implementation files in the `development` tree on 2026-11-06 and checked their top-level public declarations. The 24-type list below matches the declarations in those files. This is a source-reviewed manual inventory, not generated or CI-enforced; it does not enumerate nested/private types or external consumers. Source links point to the current `development` branch.
+**Inventory basis:** manually inspected all 16 root-level C# implementation files in the `development` tree on 2026-11-06 and checked their top-level public declarations. The 25-type list below matches the declarations in those files. This is a source-reviewed manual inventory, not generated or CI-enforced; it does not enumerate nested/private types or external consumers. Source links point to the current `development` branch.
 
 ### Existing artifact
 
