@@ -135,7 +135,7 @@ jobs:
               if not nuspec_names:
                   raise SystemExit("Package is missing its .nuspec manifest.")
               if not dlls:
-                  raise SystemExit("Package is missing the net8.0 assembly.")
+                  raise SystemExit("Package is missing the net10.0 assembly.")
               if not xml_docs:
                   raise SystemExit("Package is missing XML API documentation.")
 
@@ -170,7 +170,7 @@ jobs:
                   raise SystemExit("Package license metadata is missing.")
 
               print(
-                  f"PASS: {package} contains the net8.0 assembly, XML docs, README, required guides, "
+                  f"PASS: {package} contains the net10.0 assembly, XML docs, README, required guides, "
                   "architecture visual, expected package identity/version, license metadata, and package-safe README links."
               )
           PY
