@@ -8,7 +8,7 @@
 [![Code Coverage](https://codecov.io/gh/TrentBest/TheSingularityWorkshop.Profiles/graph/badge.svg)](https://codecov.io/gh/TrentBest/TheSingularityWorkshop.Profiles)
 [![Last commit](https://img.shields.io/github/last-commit/TrentBest/TheSingularityWorkshop.Profiles/development)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/commits/development)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Sith Policy](assets/sith-policy.svg)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/actions/workflows/sith-policy.yml)
+[![Sith Policy](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Profiles/development/assets/sith-policy.svg)](https://github.com/TrentBest/TheSingularityWorkshop.Profiles/actions/workflows/sith-policy.yml)
 
 ![Source-informed Profiles diagram: Profile.RepresentTo filters claims by disclosure rule, applies display-name and avatar rules, and returns an observer-specific projection. Provenance and GUI.SVG status are identified inside the image.](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Profiles/development/docs/images/profiles-architecture.svg)
 
