@@ -77,7 +77,7 @@ Profiles is not a database, authentication or identity provider, renderer, commu
 
 ## 🟢 04 See it in a minute
 
-Install the package into a .NET 8 project:
+Install the package into a .NET 10 project:
 
 ~~~bash
 dotnet add package TheSingularityWorkshop.Profiles
@@ -144,7 +144,7 @@ Profiles is designed to remain independently useful. Workshop applications may u
 ## Package status and boundaries
 
 - **Package:** TheSingularityWorkshop.Profiles
-- **Target framework:** .NET 8
+- **Target framework:** .NET 10
 - **Current source package version:** 0.1.0-alpha.1 (confirm the published feed before relying on package availability)
 - XML documentation is enabled; warnings are treated as errors.
 - The README includes live links for license, NuGet version/downloads, build status, last commit, and Codecov coverage.
