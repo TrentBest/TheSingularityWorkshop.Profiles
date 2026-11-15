@@ -130,8 +130,8 @@ jobs:
                   raise SystemExit(f"Package is missing required assets: {missing}")
 
               nuspec_names = [name for name in names if name.lower().endswith(".nuspec")]
-              dlls = [name for name in names if name.startswith("lib/net8.0/") and name.endswith(".dll")]
-              xml_docs = [name for name in names if name.startswith("lib/net8.0/") and name.endswith(".xml")]
+              dlls = [name for name in names if name.startswith("lib/net10.0/") and name.endswith(".dll")]
+              xml_docs = [name for name in names if name.startswith("lib/net10.0/") and name.endswith(".xml")]
               if not nuspec_names:
                   raise SystemExit("Package is missing its .nuspec manifest.")
               if not dlls:
