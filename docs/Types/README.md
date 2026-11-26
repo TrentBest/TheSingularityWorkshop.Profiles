@@ -26,6 +26,7 @@ This directory documents individual public types. Source and XML API documentati
 | `ProfileIdentityLinkStore` | [ProfileIdentityLinkStore.cs](../../ProfileIdentityLinkStore.cs) | [ProfileIdentityLinkStore](ProfileIdentityLinkStore.md) |
 | `ExternalIdentityReference` | [ExternalIdentityBinding.cs](../../ExternalIdentityBinding.cs) | [ExternalIdentityReference](ExternalIdentityReference.md) |
 | `ProfileExternalIdentityBinding` | [ExternalIdentityBinding.cs](../../ExternalIdentityBinding.cs) | [ProfileExternalIdentityBinding](ProfileExternalIdentityBinding.md) |
+| `IProfileExternalIdentityBindingStore` | [IProfileExternalIdentityBindingStore.cs](../../IProfileExternalIdentityBindingStore.cs) | [IProfileExternalIdentityBindingStore](IProfileExternalIdentityBindingStore.md) |
 | `ProfileDataLicensePolicy` | [ProfileDataLicensePolicy.cs](../../ProfileDataLicensePolicy.cs) | [ProfileDataLicensePolicy](ProfileDataLicensePolicy.md) |
 | `ProfileAccessRecord` | [ProfileAccessLog.cs](../../ProfileAccessLog.cs) | [ProfileAccessRecord](ProfileAccessRecord.md) |
 | `IProfileAccessRecorder` | [ProfileAccessLog.cs](../../ProfileAccessLog.cs) | [IProfileAccessRecorder](IProfileAccessRecorder.md) |
@@ -35,7 +36,7 @@ This directory documents individual public types. Source and XML API documentati
 | `IProfileAssumptionResolver` | [Assumptions.cs](../../Assumptions.cs) | [IProfileAssumptionResolver](IProfileAssumptionResolver.md) |
 | `ProfileAssumptionResolver` | [Assumptions.cs](../../Assumptions.cs) | [ProfileAssumptionResolver](ProfileAssumptionResolver.md) |
 
-**Coverage status:** All 25 of the 25 top-level public declarations have focused type pages. This is per-type reference coverage only; companion UML neighborhoods, sequences, use cases, and exhaustive test traceability remain separate work. The count is a manual inventory of the 16 root-level implementation files on `development`, not a generated or CI-enforced count.
+**Coverage status:** All 26 of the 26 top-level public declarations have focused type pages. This is per-type reference coverage only; companion UML neighborhoods, sequences, use cases, and exhaustive test traceability remain separate work. The count is a manual inventory of the 17 root-level implementation files on `development`, not a generated or CI-enforced count.
 
 ## Recommended documentation batches
 
@@ -44,7 +45,7 @@ This directory documents individual public types. Source and XML API documentati
 3. **Representation and exposure:** `ProfileRepresentation`, `ProfilePublicDataReport`, `ProfilePublicDataReporter` — documented.
 4. **Groups and relationships:** `ProfileGroup`, `ProfileRelationship` — documented.
 5. **Assumptions:** `AssumptionDefinition`, `AssumptionResult`, `AssumptionResultKind`, `IProfileAssumptionResolver`, `ProfileAssumptionResolver` — documented.
-6. **Identity links and external bindings:** `ProfileIdentityLink`, `ProfileIdentityLinkKind`, `ProfileIdentityLinkStore`, `ExternalIdentityReference`, `ProfileExternalIdentityBinding` — documented.
+6. **Identity links and external bindings:** `ProfileIdentityLink`, `ProfileIdentityLinkKind`, `ProfileIdentityLinkStore`, `ExternalIdentityReference`, `ProfileExternalIdentityBinding`, `IProfileExternalIdentityBindingStore` — documented.
 7. **Licensing and access transparency:** `ProfileDataLicensePolicy`, `ProfileAccessRecord`, `IProfileAccessRecorder` — documented.
 
 ## Page standard
