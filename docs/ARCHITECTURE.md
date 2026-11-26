@@ -235,3 +235,8 @@ These types describe a mapping only. They do not authenticate a caller, validate
 [TheSingularityWorkshop.HeadlessAi](https://github.com/TrentBest/TheSingularityWorkshop.HeadlessAi) is a separate headless-agent runtime. A host application may compose HeadlessAi with Profiles to associate an agent with a domain identity, describe its public persona, or pass a filtered profile representation into an experience. This is an optional composition pattern, not a dependency from HeadlessAi to Profiles.
 
 The host remains responsible for deciding what context an agent receives and what the agent may do. A profile's claims, identity mapping, or representation are not tool permissions and do not authorize actions. Authentication, capability checks, authorization, and enforcement must remain explicit host or security-layer responsibilities.
+
+
+## External identity binding persistence
+
+`IProfileExternalIdentityBindingStore` defines the host-supplied persistence seam for external identity mappings. Its atomic insert operation must prevent one issuer/subject pair from being bound to multiple profiles, including under concurrent writes. A profile may have multiple external identities. The store remains deliberately separate from authentication: only trusted host code may call it after validating the principal and authorizing the mapping operation. Durable storage, access control, and any audit/revocation history are implementation responsibilities. See [the store contract](Types/IProfileExternalIdentityBindingStore.md).
