@@ -107,3 +107,8 @@ A minimal access event containing profile, observer, and timestamp, plus the bou
 
 <!-- THE SINGULARITY WORKSHOP FOOTER -->
 <p align="center"><img src="https://raw.githubusercontent.com/TrentBest/FSM_API/master/Documentation/Branding/TheSingularityWorkshop.png" alt="The Singularity Workshop" width="200" /></p>
+
+
+### `IProfileExternalIdentityBindingStore`
+
+Host-supplied persistence contract for external identity mappings. Production implementations must enforce atomic uniqueness of each issuer/subject pair and durable storage. The interface does not authenticate callers, authorize account linking, or retain revocation/audit history; those remain host responsibilities. See [the store contract](Types/IProfileExternalIdentityBindingStore.md).
