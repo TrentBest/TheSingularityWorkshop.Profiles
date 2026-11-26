@@ -51,7 +51,7 @@ public sealed class ProfileExternalIdentityBindingStoreContractTests
 
         var results = await Task.WhenAll(attempts);
 
-        Assert.Single(results.Where(added => added));
+        Assert.Single(results, added => added);
         Assert.Equal(31, results.Count(added => !added));
         Assert.NotNull(await store.FindByExternalIdentityAsync(external));
     }
